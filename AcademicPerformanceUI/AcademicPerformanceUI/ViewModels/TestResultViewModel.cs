@@ -18,8 +18,8 @@ namespace AcademicPerformanceUI.ViewModels
 
         public override void LoadConnectedData()
         {
-            TestIds = new ObservableCollection<Guid>(UnitOfWork.TestRepository.GetAllEntitiesAsync().Result.Select(o => o.Id));
-            StudentIds = new ObservableCollection<Guid>(UnitOfWork.StudentRepository.GetAllEntitiesAsync().Result.Select(o => o.Id));
+            //TestIds = new ObservableCollection<Guid>(UnitOfWork.TestRepository.GetAllEntitiesAsync().Result.Select(o => o.Id));
+            //StudentIds = new ObservableCollection<Guid>(UnitOfWork.StudentRepository.GetAllEntitiesAsync().Result.Select(o => o.Id));
         }
     }
 }
