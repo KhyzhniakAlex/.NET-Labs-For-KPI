@@ -6,7 +6,7 @@ using WcfRestService.ServiceInterfaces;
 namespace WcfRestService.Services
 {
     [ServiceBehavior(IncludeExceptionDetailInFaults = true)]
-    public class TeacherService :BaseService<TeacherDto, Teacher>, ITeacherService
+    public class ManufacturerService : BaseService<ManufacturerDto, Manufacturer>, IManufacturerService
     {
     }
 }

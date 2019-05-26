@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace WcfRestService.DTOModels
 {
     [DataContract]
-    public class TestDto : IBaseDto
+    public class ManufacturerDto : IBaseDto
     {
         [DataMember]
         public Guid Id { get; set; }
@@ -13,12 +13,9 @@ namespace WcfRestService.DTOModels
         public string Name { get; set; }
 
         [DataMember]
-        public string Theme { get; set; }
+        public string OfficePhoneNumber { get; set; }
 
         [DataMember]
-        public DateTime Date { get; set; }
-
-        [DataMember]
-        public Guid TeacherId { get; set; }
+        public string Country { get; set; }
     }
 }

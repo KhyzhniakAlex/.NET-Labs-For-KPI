@@ -8,40 +8,40 @@ namespace AcademicPerformanceUI.Views
     /// <summary>
     /// Interaction logic for GroupView.xaml
     /// </summary>
-    public partial class GroupView: Page
+    public partial class OrderView : Page
     {
-        private GroupViewModel ViewModel { get; set; }
+        private OrderViewModel OrderViewModel { get; set; }
 
-        public GroupView()
+        public OrderView()
         {
             InitializeComponent();
-            ViewModel = new GroupViewModel();
-            DataContext = ViewModel;
+            OrderViewModel = new OrderViewModel();
+            DataContext = OrderViewModel;
         }
 
-        private void Add_Group_OnClick(object sender, RoutedEventArgs e)
+        private void Add_Order_OnClick(object sender, RoutedEventArgs e)
         {
-            ViewModel.AddData();
+            OrderViewModel.AddData();
         }
 
-        private void Update_Group_OnClick(object sender, RoutedEventArgs e)
+        private void Update_Order_OnClick(object sender, RoutedEventArgs e)
         {
-            ViewModel.UpdateData();
+            OrderViewModel.UpdateData();
         }
 
-        private void Remove_Group_OnClick(object sender, RoutedEventArgs e)
+        private void Remove_Order_OnClick(object sender, RoutedEventArgs e)
         {
-            ViewModel.RemoveData();
+            OrderViewModel.RemoveData();
         }
 
-        private void Save_Group_OnClick(object sender, RoutedEventArgs e)
+        private void Save_Order_OnClick(object sender, RoutedEventArgs e)
         {
-            ViewModel.SaveEntity();
+            OrderViewModel.SaveEntity();
         }
 
-        private void SaveAll__Group_OnClick(object sender, RoutedEventArgs e)
+        private void SaveAll__Order_OnClick(object sender, RoutedEventArgs e)
         {
-            ViewModel.SaveAllEntities();
+            OrderViewModel.SaveAllEntities();
         }
 
         public void Upload_EntityList_OnClick(object sender, RoutedEventArgs e)
@@ -49,7 +49,7 @@ namespace AcademicPerformanceUI.Views
             var fileDialog = new OpenFileDialog();
             if (fileDialog.ShowDialog() == true)
             {
-                ViewModel.DeserializeList(fileDialog.FileName);
+                OrderViewModel.DeserializeList(fileDialog.FileName);
             }
         }
     }

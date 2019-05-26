@@ -6,7 +6,7 @@ using WcfRestService.ServiceInterfaces;
 namespace WcfRestService.Services
 {
     [ServiceBehavior(IncludeExceptionDetailInFaults = true)]
-    public class TestService :BaseService<TestDto, Test>, ITestService
+    public class CarService :BaseService<CarDto, Car>, ICarService
     {
     }
 }

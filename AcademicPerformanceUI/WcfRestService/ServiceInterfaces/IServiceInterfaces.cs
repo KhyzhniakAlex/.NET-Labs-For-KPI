@@ -5,37 +5,32 @@ using WcfRestService.DTOModels;
 namespace WcfRestService.ServiceInterfaces
 {
     [ServiceContract]
-    public interface IGroupService : IBaseService<GroupDto>
+    public interface IOrderService : IBaseService<OrderDto>
     {
     }
 
     [ServiceContract]
-    public interface IStudentService : IBaseService<StudentDto>
+    public interface ICustomerService : IBaseService<CustomerDto>
     {
     }
 
     [ServiceContract]
-    public interface ISubjectService : IBaseService<SubjectDto>
+    public interface ICarService : IBaseService<CarDto>
     {
     }
 
     [ServiceContract]
-    public interface ISubjectInGroupService : IBaseService<SubjectInGroupDto>
+    public interface ICustomerInOrderService : IBaseService<CustomerInOrderDto>
     {
     }
 
     [ServiceContract]
-    public interface ITeacherService : IBaseService<TeacherDto>
+    public interface IManagerService : IBaseService<ManagerDto>
     {
     }
 
     [ServiceContract]
-    public interface ITestService : IBaseService<TestDto>
-    {
-    }
-
-    [ServiceContract]
-    public interface ITestResultService : IBaseService<TestResultDto>
+    public interface IManufacturerService : IBaseService<ManufacturerDto>
     {
     }
 }

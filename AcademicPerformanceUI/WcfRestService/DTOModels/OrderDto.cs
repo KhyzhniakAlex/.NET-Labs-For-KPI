@@ -4,21 +4,21 @@ using System.Runtime.Serialization;
 namespace WcfRestService.DTOModels
 {
     [DataContract]
-    public class StudentDto : IBaseDto
+    public class OrderDto: IBaseDto
     {
         [DataMember]
         public Guid Id { get; set; }
 
         [DataMember]
-        public string FirstName { get; set; }
+        public DateTime StartDate { get; set; }
 
         [DataMember]
-        public string LastName { get; set; }
+        public DateTime EndDate { get; set; }
 
         [DataMember]
-        public string PhoneNumber { get; set; }
+        public double Sum { get; set; }
 
         [DataMember]
-        public Guid GroupId { get; set; }
+        public Guid CustomerId { get; set; }
     }
 }

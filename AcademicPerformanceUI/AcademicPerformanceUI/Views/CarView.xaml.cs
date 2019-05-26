@@ -1,5 +1,6 @@
 ﻿using AcademicPerformanceUI.ViewModels;
 using Microsoft.Win32;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -8,40 +9,40 @@ namespace AcademicPerformanceUI.Views
     /// <summary>
     /// Interaction logic for SubjectView.xaml
     /// </summary>
-    public partial class SubjectView : Page
+    public partial class CarView : Page
     {
-        private SubjectViewModel SubjectViewModel { get; set; }
+        private CarViewModel CarViewModel { get; set; }
 
-        public SubjectView()
+        public CarView()
         {
             InitializeComponent();
-            SubjectViewModel = new SubjectViewModel();
-            DataContext = SubjectViewModel;
+            CarViewModel = new CarViewModel();
+            DataContext = CarViewModel;
         }
 
-        private void Add_Subject_OnClick(object sender, RoutedEventArgs e)
+        private void Add_Car_OnClick(object sender, RoutedEventArgs e)
         {
-            SubjectViewModel.AddData();
+            CarViewModel.AddData();
         }
 
-        private void Update_Subject_OnClick(object sender, RoutedEventArgs e)
+        private void Update_Car_OnClick(object sender, RoutedEventArgs e)
         {
-            SubjectViewModel.UpdateData();
+            CarViewModel.UpdateData();
         }
 
-        private void Remove_Subject_OnClick(object sender, RoutedEventArgs e)
+        private void Remove_Car_OnClick(object sender, RoutedEventArgs e)
         {
-            SubjectViewModel.RemoveData();
+            CarViewModel.RemoveData();
         }
 
-        private void Save_Subject_OnClick(object sender, RoutedEventArgs e)
+        private void Save_Car_OnClick(object sender, RoutedEventArgs e)
         {
-            SubjectViewModel.SaveEntity();
+            CarViewModel.SaveEntity();
         }
 
-        private void SaveAll__Subject_OnClick(object sender, RoutedEventArgs e)
+        private void SaveAll__Car_OnClick(object sender, RoutedEventArgs e)
         {
-            SubjectViewModel.SaveAllEntities();
+            CarViewModel.SaveAllEntities();
         }
 
         public void Upload_EntityList_OnClick(object sender, RoutedEventArgs e)
@@ -49,7 +50,7 @@ namespace AcademicPerformanceUI.Views
             var fileDialog = new OpenFileDialog();
             if (fileDialog.ShowDialog() == true)
             {
-                SubjectViewModel.DeserializeList(fileDialog.FileName);
+                CarViewModel.DeserializeList(fileDialog.FileName);
             }
         }
     }

@@ -5,7 +5,6 @@ using MahApps.Metro.IconPacks;
 
 namespace AcademicPerformanceUI.ViewModels
 { 
-
     public class MenuViewModel
     {
         private static readonly ObservableCollection<MenuItem> AppMenu = new ObservableCollection<MenuItem>();

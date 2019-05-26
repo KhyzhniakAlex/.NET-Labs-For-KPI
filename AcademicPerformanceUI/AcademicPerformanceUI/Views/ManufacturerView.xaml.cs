@@ -8,40 +8,40 @@ namespace AcademicPerformanceUI.Views
     /// <summary>
     /// Interaction logic for TestView.xaml
     /// </summary>
-    public partial class TestView : Page
+    public partial class ManufacturerView : Page
     {
-        private TestViewModel TestViewModel { get; set; }
+        private ManufacturerViewModel ManufacturerViewModel { get; set; }
 
-        public TestView()
+        public ManufacturerView()
         {
             InitializeComponent();
-            TestViewModel = new TestViewModel();
-            DataContext = TestViewModel;
+            ManufacturerViewModel = new ManufacturerViewModel();
+            DataContext = ManufacturerViewModel;
         }
 
-        private void Add_Test_OnClick(object sender, RoutedEventArgs e)
+        private void Add_Manufacturer_OnClick(object sender, RoutedEventArgs e)
         {
-            TestViewModel.AddData();
+            ManufacturerViewModel.AddData();
         }
 
-        private void Update_Test_OnClick(object sender, RoutedEventArgs e)
+        private void Update_Manufacturer_OnClick(object sender, RoutedEventArgs e)
         {
-            TestViewModel.UpdateData();
+            ManufacturerViewModel.UpdateData();
         }
 
-        private void Remove_Test_OnClick(object sender, RoutedEventArgs e)
+        private void Remove_Manufacturer_OnClick(object sender, RoutedEventArgs e)
         {
-            TestViewModel.RemoveData();
+            ManufacturerViewModel.RemoveData();
         }
 
-        private void Save_Test_OnClick(object sender, RoutedEventArgs e)
+        private void Save_Manufacturer_OnClick(object sender, RoutedEventArgs e)
         {
-            TestViewModel.SaveEntity();
+            ManufacturerViewModel.SaveEntity();
         }
 
-        private void SaveAll__Test_OnClick(object sender, RoutedEventArgs e)
+        private void SaveAll__Manufacturer_OnClick(object sender, RoutedEventArgs e)
         {
-            TestViewModel.SaveAllEntities();
+            ManufacturerViewModel.SaveAllEntities();
         }
 
 
@@ -50,7 +50,7 @@ namespace AcademicPerformanceUI.Views
             var fileDialog = new OpenFileDialog();
             if (fileDialog.ShowDialog() == true)
             {
-                TestViewModel.DeserializeList(fileDialog.FileName);
+                ManufacturerViewModel.DeserializeList(fileDialog.FileName);
             }
         }
     }

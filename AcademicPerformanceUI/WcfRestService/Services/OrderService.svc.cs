@@ -1,13 +1,13 @@
-﻿using DataAccess.Models;
+﻿using DataAccess.Interfaces;
+using DataAccess.Models;
 using System.ServiceModel;
 using WcfRestService.DTOModels;
 using WcfRestService.ServiceInterfaces;
 
-namespace WcfRestService.Services
+namespace WcfRestService
 {
     [ServiceBehavior(IncludeExceptionDetailInFaults = true)]
-
-    public class StudentService :BaseService<StudentDto, Student>, IStudentService
+    public class OrderService : BaseService<OrderDto, Order>, IOrderService 
     {
     }
 }

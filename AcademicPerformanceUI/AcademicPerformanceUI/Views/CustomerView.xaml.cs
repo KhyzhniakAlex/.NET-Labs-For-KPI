@@ -8,40 +8,40 @@ namespace AcademicPerformanceUI.Views
     /// <summary>
     /// Interaction logic for StudentView.xaml
     /// </summary>
-    public partial class StudentView : Page
+    public partial class CustomerView : Page
     {
-        private StudentViewModel StudentViewModel { get; set; }
+        private CustomerViewModel CustomerViewModel { get; set; }
 
-        public StudentView()
+        public CustomerView()
         {
             InitializeComponent();
-            StudentViewModel = new StudentViewModel();
-            DataContext = StudentViewModel;
+            CustomerViewModel = new CustomerViewModel();
+            DataContext = CustomerViewModel;
         }
 
-        private void Add_Student_OnClick(object sender, RoutedEventArgs e)
+        private void Add_Customer_OnClick(object sender, RoutedEventArgs e)
         {
-            StudentViewModel.AddData();
+            CustomerViewModel.AddData();
         }
 
-        private void Update_Student_OnClick(object sender, RoutedEventArgs e)
+        private void Update_Customer_OnClick(object sender, RoutedEventArgs e)
         {
-            StudentViewModel.UpdateData();
+            CustomerViewModel.UpdateData();
         }
 
-        private void Remove_Student_OnClick(object sender, RoutedEventArgs e)
+        private void Remove_Customer_OnClick(object sender, RoutedEventArgs e)
         {
-            StudentViewModel.RemoveData();
+            CustomerViewModel.RemoveData();
         }
 
-        private void Save_Student_OnClick(object sender, RoutedEventArgs e)
+        private void Save_Customer_OnClick(object sender, RoutedEventArgs e)
         {
-            StudentViewModel.SaveEntity();
+            CustomerViewModel.SaveEntity();
         }
 
-        private void SaveAll__Student_OnClick(object sender, RoutedEventArgs e)
+        private void SaveAll__Customer_OnClick(object sender, RoutedEventArgs e)
         {
-            StudentViewModel.SaveAllEntities();
+            CustomerViewModel.SaveAllEntities();
         }
 
         public void Upload_EntityList_OnClick(object sender, RoutedEventArgs e)
@@ -49,7 +49,7 @@ namespace AcademicPerformanceUI.Views
             var fileDialog = new OpenFileDialog();
             if (fileDialog.ShowDialog() == true)
             {
-                StudentViewModel.DeserializeList(fileDialog.FileName);
+                CustomerViewModel.DeserializeList(fileDialog.FileName);
             }
         }
     }

@@ -8,40 +8,40 @@ namespace AcademicPerformanceUI.Views
     /// <summary>
     /// Interaction logic for TeacherView.xaml
     /// </summary>
-    public partial class TeacherView : Page
+    public partial class ManagerView : Page
     {
-        private TeacherViewModel TeacherViewModel { get; set; }
+        private ManagerViewModel ManagerViewModel { get; set; }
 
-        public TeacherView()
+        public ManagerView()
         {
             InitializeComponent();
-            TeacherViewModel = new TeacherViewModel();
-            DataContext = TeacherViewModel;
+            ManagerViewModel = new ManagerViewModel();
+            DataContext = ManagerViewModel;
         }
 
-        private void Add_Teacher_OnClick(object sender, RoutedEventArgs e)
+        private void Add_Manager_OnClick(object sender, RoutedEventArgs e)
         {
-            TeacherViewModel.AddData();
+            ManagerViewModel.AddData();
         }
 
-        private void Update_Teacher_OnClick(object sender, RoutedEventArgs e)
+        private void Update_Manager_OnClick(object sender, RoutedEventArgs e)
         {
-            TeacherViewModel.UpdateData();
+            ManagerViewModel.UpdateData();
         }
 
-        private void Remove_Teacher_OnClick(object sender, RoutedEventArgs e)
+        private void Remove_Manager_OnClick(object sender, RoutedEventArgs e)
         {
-            TeacherViewModel.RemoveData();
+            ManagerViewModel.RemoveData();
         }
 
-        private void Save_Teacher_OnClick(object sender, RoutedEventArgs e)
+        private void Save_Manager_OnClick(object sender, RoutedEventArgs e)
         {
-            TeacherViewModel.SaveEntity();
+            ManagerViewModel.SaveEntity();
         }
 
-        private void SaveAll__Teacher_OnClick(object sender, RoutedEventArgs e)
+        private void SaveAll__Manager_OnClick(object sender, RoutedEventArgs e)
         {
-            TeacherViewModel.SaveAllEntities();
+            ManagerViewModel.SaveAllEntities();
         }
 
         public void Upload_EntityList_OnClick(object sender, RoutedEventArgs e)
@@ -49,7 +49,7 @@ namespace AcademicPerformanceUI.Views
             var fileDialog = new OpenFileDialog();
             if (fileDialog.ShowDialog() == true)
             {
-                TeacherViewModel.DeserializeList(fileDialog.FileName);
+                ManagerViewModel.DeserializeList(fileDialog.FileName);
             }
         }
     }

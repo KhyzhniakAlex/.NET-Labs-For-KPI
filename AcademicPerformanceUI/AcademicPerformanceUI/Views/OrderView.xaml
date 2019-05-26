@@ -1,4 +1,4 @@
-﻿<Page x:Class="AcademicPerformanceUI.Views.GroupView"
+﻿<Page x:Class="AcademicPerformanceUI.Views.OrderView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,14 +6,14 @@
       xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
       xmlns:viewModels="clr-namespace:AcademicPerformanceUI.ViewModels"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="GroupView">
-
+      d:DesignHeight="540" d:DesignWidth="800"
+      Title="OrderView">
     <Page.DataContext>
-        <viewModels:GroupViewModel>
+        <viewModels:OrderViewModel>
 
-        </viewModels:GroupViewModel>
+        </viewModels:OrderViewModel>
     </Page.DataContext>
+
     <Grid>
         <ListBox Margin="1,0,401,0" SelectedItem="{Binding Path=SelectedEntity, Mode=TwoWay}" ItemsSource="{Binding Entities}">
             <ListBox.ItemTemplate>
@@ -21,27 +21,31 @@
                            <StackPanel>
                             <StackPanel Orientation="Vertical">
                                 <TextBlock FontSize="15" Text="{Binding Id, StringFormat='Id: {0}'}"/>
-                                <TextBlock FontSize="15" FontWeight="Bold" Text="{Binding GroupName, StringFormat='Name: {0}'}"/>
-                                <TextBlock FontSize="15" Text="{Binding StudyYear, StringFormat='Study year: {0}'}"/>
-                                <TextBlock FontSize="15" Text="{Binding MaxStudents, StringFormat='Max students: {0}'}"/>
-                            </StackPanel>
+                                <TextBlock FontSize="15" Text="{Binding StartDate, StringFormat='Start date: {0}'}"/>
+                                <TextBlock FontSize="15" Text="{Binding EndDate, StringFormat='End date: {0}'}"/>
+                                <TextBlock FontSize="15" Text="{Binding Sum, StringFormat='Sum: {0}'}"/>
+                                <TextBlock FontSize="15" Text="{Binding CustomerId, StringFormat='Customer: {0}'}"/>
+                        </StackPanel>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
         <StackPanel Orientation="Vertical" Margin="404,0,0,10">
-            <Label Margin="10,70,10,0" Content="Input name:"></Label>
-            <TextBox Margin="10,0,10,0" Height="23" Text="{Binding SelectedEntity.GroupName}"/>
-            <Label Margin="10,0,10,0" Content="Input study year:"></Label>
-            <TextBox Margin="10,0,10,0" Height="23" Text="{Binding SelectedEntity.StudyYear}"/>
-            <Label Margin="10,0,10,0" Content="Input max students:"></Label>
-            <TextBox Margin="10,0,10,0" Height="23" Text="{Binding SelectedEntity.MaxStudents}"/>
+            <Label Margin="10,10,10,0" Content="Input start date:"></Label>
+            <TextBox Margin="10,0,10,0" Height="23" Text="{Binding SelectedEntity.StartDate}"/>
+            <Label Margin="10,10,10,0" Content="Input end date:"></Label>
+            <TextBox Margin="10,0,10,0" Height="23" Text="{Binding SelectedEntity.EndDate}"/>
+            <Label Margin="10,0,10,0" Content="Input sum:"></Label>
+            <TextBox Margin="10,0,10,0" Height="23" Text="{Binding SelectedEntity.Sum}"/>
+            <Label Margin="10,0,10,0" Content="Input customer:"></Label>
+            <ComboBox Margin="10,0,10,0" Height="23" SelectedItem="{Binding SelectedEntity.CustomerId}"
+                      ItemsSource="{Binding CustomerIds}"/>
 
-            <Button Margin="80,20,80,0" Content="Create" Click="Add_Group_OnClick"/>
-            <Button Margin="80,20,80,0" Content="Delete" Click="Remove_Group_OnClick"/>
-            <Button Margin="80,20,80,0" Content="Update" Click="Update_Group_OnClick"/>
-            <Button Margin="80,20,80,0" Content="Save one" Click="Save_Group_OnClick"/>
-            <Button Margin="80,20,80,0" Content="Save all" Click="SaveAll__Group_OnClick"/>
+            <Button Margin="80,20,80,0" Content="Create" Click="Add_Order_OnClick"/>
+            <Button Margin="80,20,80,0" Content="Delete" Click="Remove_Order_OnClick"/>
+            <Button Margin="80,20,80,0" Content="Update" Click="Update_Order_OnClick"/>
+            <Button Margin="80,20,80,0" Content="Save one" Click="Save_Order_OnClick"/>
+            <Button Margin="80,20,80,0" Content="Save all" Click="SaveAll__Order_OnClick"/>
             <Button Margin="80,20,80,0" Content="UploadList" Click="Upload_EntityList_OnClick"/>
 
         </StackPanel>

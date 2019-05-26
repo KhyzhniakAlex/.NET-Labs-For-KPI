@@ -6,7 +6,7 @@ using WcfRestService.ServiceInterfaces;
 namespace WcfRestService.Services
 {
     [ServiceBehavior(IncludeExceptionDetailInFaults = true)]
-    public class SubjectInGroupService :BaseService<SubjectInGroupDto, SubjectInGroup>, ISubjectInGroupService
+    public class CustomerInOrderService : BaseService<CustomerInOrderDto, CustomerInOrder>, ICustomerInOrderService
     {
     }
 }

@@ -4,14 +4,14 @@ using System.ServiceModel;
 using WcfRestService.DTOModels;
 using WcfRestService.ServiceInterfaces;
 
-namespace WcfRestService
+namespace WcfRestService.Services
 {
     [ServiceBehavior(IncludeExceptionDetailInFaults = true)]
-    public class GroupService : BaseService<GroupDto, Group>, IGroupService 
+    public class ManagerService : BaseService<ManagerDto, Manager>, IManagerService
     {
-        public GroupService(IRepository<Group> repository):base(repository)
+        public ManagerService(IRepository<Manager> repository) : base(repository)
         {
-                
+
         }
     }
 }

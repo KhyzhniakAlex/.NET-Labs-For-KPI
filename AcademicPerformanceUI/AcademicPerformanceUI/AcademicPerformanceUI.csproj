@@ -73,25 +73,25 @@
     <Compile Include="Views\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\StudentView.xaml.cs">
-      <DependentUpon>StudentView.xaml</DependentUpon>
+    <Compile Include="Views\CustomerView.xaml.cs">
+      <DependentUpon>CustomerView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SubjectInGroup.xaml.cs">
-      <DependentUpon>SubjectInGroup.xaml</DependentUpon>
+    <Compile Include="Views\CustomerInOrderView.xaml.cs">
+      <DependentUpon>CustomerInOrderView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SubjectView.xaml.cs">
-      <DependentUpon>SubjectView.xaml</DependentUpon>
+    <Compile Include="Views\CarView.xaml.cs">
+      <DependentUpon>CarView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TeacherView.xaml.cs">
-      <DependentUpon>TeacherView.xaml</DependentUpon>
+    <Compile Include="Views\ManagerView.xaml.cs">
+      <DependentUpon>ManagerView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TestResultView.xaml.cs">
       <DependentUpon>TestResultView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TestView.xaml.cs">
-      <DependentUpon>TestView.xaml</DependentUpon>
+    <Compile Include="Views\ManufacturerView.xaml.cs">
+      <DependentUpon>ManufacturerView.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\GroupView.xaml">
+    <Page Include="Views\OrderView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -106,17 +106,17 @@
     <Compile Include="Navigation.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\SystemViewModels\DelegateCommand.cs" />
-    <Compile Include="ViewModels\GroupViewModel.cs" />
+    <Compile Include="ViewModels\OrderViewModel.cs" />
     <Compile Include="ViewModels\SystemViewModels\MenuItem.cs" />
     <Compile Include="ViewModels\SystemViewModels\MenuViewModel.cs" />
-    <Compile Include="ViewModels\StudentViewModel.cs" />
-    <Compile Include="ViewModels\SubjectInGroupViewModel.cs" />
-    <Compile Include="ViewModels\SubjectViewModel.cs" />
-    <Compile Include="ViewModels\TeacherViewModel.cs" />
+    <Compile Include="ViewModels\CustomerViewModel.cs" />
+    <Compile Include="ViewModels\CustomerInOrderViewModel.cs" />
+    <Compile Include="ViewModels\CarViewModel.cs" />
+    <Compile Include="ViewModels\ManagerViewModel.cs" />
     <Compile Include="ViewModels\TestResultViewModel.cs" />
-    <Compile Include="ViewModels\TestViewModel.cs" />
-    <Compile Include="Views\GroupView.xaml.cs">
-      <DependentUpon>GroupView.xaml</DependentUpon>
+    <Compile Include="ViewModels\ManufacturerViewModel.cs" />
+    <Compile Include="Views\OrderView.xaml.cs">
+      <DependentUpon>OrderView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -126,19 +126,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\StudentView.xaml">
+    <Page Include="Views\CustomerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SubjectInGroup.xaml">
+    <Page Include="Views\CustomerInOrderView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SubjectView.xaml">
+    <Page Include="Views\CarView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\TeacherView.xaml">
+    <Page Include="Views\ManagerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -146,7 +146,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\TestView.xaml">
+    <Page Include="Views\ManufacturerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
