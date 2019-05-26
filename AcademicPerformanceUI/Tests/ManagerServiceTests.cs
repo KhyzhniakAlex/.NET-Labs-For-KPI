@@ -7,6 +7,7 @@ using Tests.MockRepositories;
 using WcfRestService;
 using WcfRestService.DTOModels;
 using WcfRestService.ServiceInterfaces;
+using WcfRestService.Services;
 
 namespace Tests
 {

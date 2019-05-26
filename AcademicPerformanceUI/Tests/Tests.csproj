@@ -49,8 +49,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GroupServiceTests.cs" />
-    <Compile Include="MockRepositories\GroupRepositoryMock.cs" />
+    <Compile Include="ManagerServiceTests.cs" />
+    <Compile Include="MockRepositories\ManagerRepositoryMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
