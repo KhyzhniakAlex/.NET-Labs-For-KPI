@@ -19,7 +19,7 @@ namespace DataAccess.InMemoryDb.Repository
                 case Car car: InMemoryLists.Cars.Add(car); break;
                 case Manager manager: InMemoryLists.Managers.Add(manager); break;
                 case Manufacturer manufacturer: InMemoryLists.Manufacturers.Add(manufacturer); break;
-                case CustomerInOrder customerInOrder: InMemoryLists.CustomerInOrders.Add(customerInOrder); break;
+                case CarInOrder carInOrder: InMemoryLists.CarInOrders.Add(carInOrder); break;
                 default: throw new Exception("There is no such type");
             }
 
@@ -38,7 +38,7 @@ namespace DataAccess.InMemoryDb.Repository
                                .ToList();
             InMemoryLists.Manufacturers = InMemoryLists.Manufacturers.Where(x => x.Id != Id)
                                .ToList();
-            InMemoryLists.CustomerInOrders = InMemoryLists.CustomerInOrders.Where(x => x.Id != Id)
+            InMemoryLists.CarInOrders = InMemoryLists.CarInOrders.Where(x => x.Id != Id)
                                .ToList();
 
             return Task.FromResult(true);
@@ -54,7 +54,7 @@ namespace DataAccess.InMemoryDb.Repository
             if (type == typeof(Car)) list = InMemoryLists.Cars.Select(item => (IEntity)item).ToList();
             if (type == typeof(Manager)) list = InMemoryLists.Managers.Select(item => (IEntity)item).ToList();
             if (type == typeof(Manufacturer)) list = InMemoryLists.Manufacturers.Select(item => (IEntity)item).ToList();
-            if (type == typeof(CustomerInOrder)) list = InMemoryLists.CustomerInOrders.Select(item => (IEntity)item).ToList();
+            if (type == typeof(CarInOrder)) list = InMemoryLists.CarInOrders.Select(item => (IEntity)item).ToList();
 
             return Task.FromResult(list.Select(item => (TEntity)item).ToList());
         }
@@ -99,10 +99,10 @@ namespace DataAccess.InMemoryDb.Repository
                         oldEntity = (Manufacturer)entity.Clone();
                         break;
                     }
-                case CustomerInOrder subjectInGroup:
+                case CarInOrder subjectInGroup:
                     {
-                        var oldEntity = InMemoryLists.CustomerInOrders.Find(o => o.Id == entity.Id);
-                        oldEntity = (CustomerInOrder)entity.Clone();
+                        var oldEntity = InMemoryLists.CarInOrders.Find(o => o.Id == entity.Id);
+                        oldEntity = (CarInOrder)entity.Clone();
                         break;
                     }
                 default: throw new Exception("There is no such type");
@@ -134,9 +134,9 @@ namespace DataAccess.InMemoryDb.Repository
             {
                 InMemoryLists.Manufacturers.Clear();
             }
-            if (type == typeof(CustomerInOrder))
+            if (type == typeof(CarInOrder))
             {
-                InMemoryLists.CustomerInOrders.Clear();
+                InMemoryLists.CarInOrders.Clear();
             }
             entities.ForEach(item => CreateAsync(item));
             //throw new Exception("No such types");
@@ -151,7 +151,7 @@ namespace DataAccess.InMemoryDb.Repository
             if (type == typeof(Car)) newObject = new Car();
             if (type == typeof(Manager)) newObject = new Manager();
             if (type == typeof(Manufacturer)) newObject = new Manufacturer();
-            if (type == typeof(CustomerInOrder)) newObject = new CustomerInOrder();
+            if (type == typeof(CarInOrder)) newObject = new CarInOrder();
             return (TEntity)newObject;
         }
     }

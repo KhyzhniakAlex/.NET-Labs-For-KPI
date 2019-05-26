@@ -5,9 +5,9 @@ using DataAccess.Interfaces;
 
 namespace DataAccess.Models
 {
-    [Table(Name = "CustomerInOrder")]
+    [Table(Name = "CarInOrder")]
     [Serializable]
-    public class CustomerInOrder : IEntity
+    public class CarInOrder : IEntity
     {
         [Column(IsPrimaryKey = true, IsDbGenerated = false)]
         [DataMember()]
@@ -21,7 +21,7 @@ namespace DataAccess.Models
         [DataMember()]
         public Guid CarId { get; set; }
        
-        public object Clone() => new CustomerInOrder()
+        public object Clone() => new CarInOrder()
         {
             Id = this.Id,
             OrderId = this.OrderId,
@@ -30,7 +30,7 @@ namespace DataAccess.Models
 
         public IEntity MapFrom(IEntity mapFrom)
         {
-            var entity = (CustomerInOrder)mapFrom;
+            var entity = (CarInOrder)mapFrom;
             this.Id = entity.Id;
             this.OrderId = entity.OrderId;
             this.CarId = entity.CarId;

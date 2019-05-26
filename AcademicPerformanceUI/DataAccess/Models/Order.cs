@@ -29,6 +29,10 @@ namespace DataAccess.Models
         [DataMember()]
         public Guid CustomerId { get; set; }
 
+        [DataMember()]
+        [Column]
+        public Guid ManagerId { get; set; }
+
         public object Clone()
         {
             return new Order()
@@ -37,7 +41,8 @@ namespace DataAccess.Models
                 StartDate = this.StartDate,
                 EndDate = this.EndDate,
                 Sum = this.Sum,
-                CustomerId = this.CustomerId
+                CustomerId = this.CustomerId,
+                ManagerId = this.ManagerId
             };
         }
 
@@ -48,7 +53,8 @@ namespace DataAccess.Models
             this.StartDate = entity.StartDate;
             this.EndDate = entity.EndDate;
             this.Sum = entity.Sum;
-            this.CustomerId = entity.CustomerId; 
+            this.CustomerId = entity.CustomerId;
+            this.ManagerId = entity.ManagerId;
 
             return this;
         }

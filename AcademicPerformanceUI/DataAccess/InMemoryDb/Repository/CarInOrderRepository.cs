@@ -2,7 +2,7 @@
 
 namespace DataAccess.InMemoryDb.Repository
 {
-    public class CustomerInOrderRepository : GenericRepository<CustomerInOrder>
+    public class CarInOrderRepository : GenericRepository<CarInOrder>
     {
     }
 }

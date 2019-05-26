@@ -25,7 +25,8 @@ namespace DataAccess.SqlDbConnection.Repositories
                     StartDate = (DateTime)reader["StartDate"],
                     EndDate = (DateTime)reader["EndDate"],
                     Sum = (double)reader["Sum"],
-                    CustomerId = (Guid)reader["CustomerId"]
+                    CustomerId = (Guid)reader["CustomerId"],
+                    ManagerId = (Guid)reader["ManagerId"]
                 });
             }
             reader.Close();

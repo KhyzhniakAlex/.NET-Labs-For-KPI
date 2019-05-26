@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace WcfRestService.DTOModels
 {
     [DataContract]
-    public class CustomerInOrderDto : IBaseDto
+    public class CarInOrderDto : IBaseDto
     {
         [DataMember]
         public Guid Id { get; set; }

@@ -20,7 +20,7 @@ namespace WcfRestService.ServiceInterfaces
     }
 
     [ServiceContract]
-    public interface ICustomerInOrderService : IBaseService<CustomerInOrderDto>
+    public interface ICarInOrderService : IBaseService<CarInOrderDto>
     {
     }
 

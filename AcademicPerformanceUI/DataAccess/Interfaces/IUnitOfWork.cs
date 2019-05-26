@@ -7,7 +7,7 @@ namespace DataAccess.Interfaces
         IRepository<Customer> CustomerRepository { get; }
         IRepository<Order> OrderRepository { get; }
         IRepository<Car> CarRepository { get; }
-        IRepository<CustomerInOrder> CustomerInOrderRepository { get; }
+        IRepository<CarInOrder> CarInOrderRepository { get; }
         IRepository<Manager> ManagerRepository { get; }
         IRepository<Manufacturer> ManufacturerRepository { get;  }
 

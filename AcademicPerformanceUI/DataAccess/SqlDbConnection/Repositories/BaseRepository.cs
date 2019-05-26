@@ -60,7 +60,7 @@ namespace DataAccess.SqlDbConnection.Repository
                 case "Car": newObject = new Car(); break;
                 case "Manager": newObject = new Manager(); break;
                 case "Manufacturer": newObject = new Manufacturer(); break;
-                case "CustomerInOrder": newObject = new CustomerInOrder(); break;
+                case "CustomerInOrder": newObject = new CarInOrder(); break;
                 default: throw new Exception("No such type");
             }
             return (TEntity)newObject;
@@ -72,7 +72,7 @@ namespace DataAccess.SqlDbConnection.Repository
             ExecuteNonQuery(SqlHelper.CreateTableSqlText<Customer>());
             ExecuteNonQuery(SqlHelper.CreateTableSqlText<Car>());
             ExecuteNonQuery(SqlHelper.CreateTableSqlText<Manager>());
-            ExecuteNonQuery(SqlHelper.CreateTableSqlText<CustomerInOrder>());
+            ExecuteNonQuery(SqlHelper.CreateTableSqlText<CarInOrder>());
             ExecuteNonQuery(SqlHelper.CreateTableSqlText<Manufacturer>());
         }
 

@@ -63,7 +63,7 @@
   <ItemGroup>
     <Content Include="Services\OrderService.svc" />
     <Content Include="Services\CustomerService.svc" />
-    <Content Include="Services\CustomerInOrderService.svc" />
+    <Content Include="Services\CarInOrderService.svc" />
     <Content Include="Services\CarService.svc" />
     <Content Include="Services\ManagerService.svc" />
     <Content Include="Services\TestResultService.svc" />
@@ -75,7 +75,7 @@
     <Compile Include="DTOModels\IBaseDto.cs" />
     <Compile Include="DTOModels\CustomerDto.cs" />
     <Compile Include="DTOModels\CarDto.cs" />
-    <Compile Include="DTOModels\CustomerInOrderDto.cs" />
+    <Compile Include="DTOModels\CarInOrderDto.cs" />
     <Compile Include="DTOModels\ManagerDto.cs" />
     <Compile Include="DTOModels\ManufacturerDto.cs" />
     <Compile Include="DTOModels\TestResultDto.cs" />
@@ -90,8 +90,8 @@
     <Compile Include="Services\CustomerService.svc.cs">
       <DependentUpon>CustomerService.svc</DependentUpon>
     </Compile>
-    <Compile Include="Services\CustomerInOrderService.svc.cs">
-      <DependentUpon>CustomerInOrderService.svc</DependentUpon>
+    <Compile Include="Services\CarInOrderService.svc.cs">
+      <DependentUpon>CarInOrderService.svc</DependentUpon>
     </Compile>
     <Compile Include="Services\CarService.svc.cs">
       <DependentUpon>CarService.svc</DependentUpon>

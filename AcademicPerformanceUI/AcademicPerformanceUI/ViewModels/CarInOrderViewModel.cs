@@ -5,14 +5,14 @@ using System.Linq;
 
 namespace AcademicPerformanceUI.ViewModels
 {
-    public class CustomerInOrderViewModel : BaseViewModel<CustomerInOrder>
+    public class CarInOrderViewModel : BaseViewModel<CarInOrder>
     {
         public ObservableCollection<Guid> CarIds { get; set; }
         public ObservableCollection<Guid> OrdersIds { get; set; }
 
-        public CustomerInOrderViewModel()
+        public CarInOrderViewModel()
         {
-            SelectedEntity = new CustomerInOrder();
+            SelectedEntity = new CarInOrder();
             LoadConnectedData();
         }
 

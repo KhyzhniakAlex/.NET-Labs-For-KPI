@@ -27,8 +27,7 @@ namespace DataAccess.SqlDbConnection.Repositories
                     SerialNumber = reader["SerialNumber"].ToString(),
                     Color = reader["Color"].ToString(),
                     Price = (double)reader["Price"],
-                    ManufacturerId = (Guid)reader["ManufacturerId"],
-                    ManagerId = (Guid)reader["ManagerId"]
+                    ManufacturerId = (Guid)reader["ManufacturerId"]
                 });
             }
             reader.Close();

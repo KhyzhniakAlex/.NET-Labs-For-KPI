@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:DataAccess.Models;assembly=DataAccess"
       xmlns:sys="clr-namespace:System;assembly=mscorlib"
       mc:Ignorable="d" 
-      d:DesignHeight="670" d:DesignWidth="800"
+      d:DesignHeight="620" d:DesignWidth="800"
       Title="CarView">
     <Page.DataContext>
         <viewModels:CarViewModel>
@@ -27,7 +27,6 @@
                             <TextBlock FontSize="15" Text="{Binding Color, StringFormat='Color: {0}'}"/>
                             <TextBlock FontSize="15" Text="{Binding Price, StringFormat='Price: {0}'}"/>
                             <TextBlock FontSize="15" Text="{Binding ManufacturerId, StringFormat='Manufacturer: {0}'}"/>
-                            <TextBlock FontSize="15" Text="{Binding ManagerId, StringFormat='Manager: {0}'}"/>
                         </StackPanel>
                     </StackPanel>
                 </DataTemplate>
@@ -47,9 +46,6 @@
             <Label Margin="10,0,10,0" Content="Input manufacturer:"></Label>
             <ComboBox Margin="10,0,10,0" Height="23" SelectedItem="{Binding SelectedEntity.ManufacturerId}"
                       ItemsSource="{Binding ManufacturerIds}"/>
-            <Label Margin="10,0,10,0" Content="Input manager:"></Label>
-            <ComboBox Margin="10,0,10,0" Height="23" SelectedItem="{Binding SelectedEntity.ManagerId}"
-                      ItemsSource="{Binding ManagerIds}"/>
 
             <Button Margin="80,20,80,0" Content="Create" Click="Add_Car_OnClick"/>
             <Button Margin="80,20,80,0" Content="Delete" Click="Remove_Car_OnClick"/>

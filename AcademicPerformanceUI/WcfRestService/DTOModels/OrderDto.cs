@@ -20,5 +20,8 @@ namespace WcfRestService.DTOModels
 
         [DataMember]
         public Guid CustomerId { get; set; }
+
+        [DataMember]
+        public Guid ManagerId { get; set; }
     }
 }

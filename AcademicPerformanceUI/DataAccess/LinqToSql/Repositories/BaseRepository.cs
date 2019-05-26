@@ -79,7 +79,7 @@ namespace DataAccess.LinqToSql.Repository
                 case "Car": newObject = new Car(); break;
                 case "Manager": newObject = new Manager(); break;
                 case "Manufacturer": newObject = new Manufacturer(); break;
-                case "CustomerInOrder": newObject = new CustomerInOrder(); break;
+                case "CarInOrder": newObject = new CarInOrder(); break;
                 default: throw new Exception("No such type");
             }
             return (TEntity)newObject;

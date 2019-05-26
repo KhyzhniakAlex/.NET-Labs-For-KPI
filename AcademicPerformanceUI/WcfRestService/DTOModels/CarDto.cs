@@ -26,8 +26,5 @@ namespace WcfRestService.DTOModels
 
         [DataMember]
         public Guid ManufacturerId { get; set; }
-
-        [DataMember]
-        public Guid ManagerId { get; set; }
     }
 }

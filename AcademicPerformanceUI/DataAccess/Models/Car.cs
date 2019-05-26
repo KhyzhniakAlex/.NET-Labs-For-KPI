@@ -37,9 +37,6 @@ namespace DataAccess.Models
         [Column]
         public Guid ManufacturerId { get; set; }
 
-        [DataMember()]
-        [Column]
-        public Guid ManagerId { get; set; }
 
         public object Clone() => new Car()
         {
@@ -49,8 +46,7 @@ namespace DataAccess.Models
             SerialNumber = this.SerialNumber,
             Color = this.Color,
             Price = this.Price,
-            ManufacturerId = this.ManufacturerId,
-            ManagerId = this.ManagerId
+            ManufacturerId = this.ManufacturerId
         };
 
 
@@ -64,7 +60,6 @@ namespace DataAccess.Models
             this.Color = entity.Color;
             this.Price = entity.Price;
             this.ManufacturerId = entity.ManufacturerId;
-            this.ManagerId = entity.ManagerId;
 
             return this;
         }

@@ -23,8 +23,8 @@ namespace DataAccess.LinqToSql
         private IRepository<Car> carRepository;
         public IRepository<Car> CarRepository => carRepository ?? (carRepository = new CarRepository(ConnectionString));
 
-        private IRepository<CustomerInOrder> customerInOrderRepository;
-        public IRepository<CustomerInOrder> CustomerInOrderRepository => customerInOrderRepository ?? (customerInOrderRepository = new CustomerInOrderRepository(ConnectionString));
+        private IRepository<CarInOrder> carInOrderRepository;
+        public IRepository<CarInOrder> CarInOrderRepository => carInOrderRepository ?? (carInOrderRepository = new CarInOrderRepository(ConnectionString));
 
         private IRepository<Manager> managerRepository;
         public IRepository<Manager> ManagerRepository => managerRepository ?? (managerRepository = new ManagerRepository(ConnectionString));
@@ -40,7 +40,7 @@ namespace DataAccess.LinqToSql
             if (entityType == typeof(Customer)) return (IRepository<Entity>)CustomerRepository;
             if (entityType == typeof(Order)) return (IRepository<Entity>)OrderRepository;
             if (entityType == typeof(Car)) return (IRepository<Entity>)CarRepository;
-            if (entityType == typeof(CustomerInOrder)) return (IRepository<Entity>)CustomerInOrderRepository;
+            if (entityType == typeof(CarInOrder)) return (IRepository<Entity>)CarInOrderRepository;
             if (entityType == typeof(Manager)) return (IRepository<Entity>)ManagerRepository;
             if (entityType == typeof(Manufacturer)) return (IRepository<Entity>)ManufacturerRepository;
 

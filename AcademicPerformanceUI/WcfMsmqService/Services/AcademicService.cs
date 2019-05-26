@@ -16,13 +16,13 @@ namespace WcfMsmqService.Services
         #region drivers
 
         [OperationBehavior(TransactionScopeRequired = true, TransactionAutoComplete = true)]
-        public void CreateSubject(string driver)
+        public void CreateCar(string driver)
         {
             try
             {
-                Console.WriteLine("Recieved subject: " + driver);
+                Console.WriteLine("Recieved car: " + driver);
 
-                _ = UnitOfWork.Value.SubjectRepostitory.CreateAsync(JsonConvert.DeserializeObject<Subject>(driver)).Result;
+                _ = UnitOfWork.Value.CarRepository.CreateAsync(JsonConvert.DeserializeObject<Car>(driver)).Result;
             }
             catch (Exception e)
             {
@@ -33,21 +33,24 @@ namespace WcfMsmqService.Services
 
 
         [OperationBehavior(TransactionScopeRequired = true, TransactionAutoComplete = true)]
-        public void UpdateSubject(string driver)
+        public void UpdateCar(string driver)
         {
             try
             {
-                Console.WriteLine("Recieved updated subject: " + driver);
-                var driverObj = JsonConvert.DeserializeObject<Subject>(driver);
+                Console.WriteLine("Recieved updated car: " + driver);
+                var driverObj = JsonConvert.DeserializeObject<Car>(driver);
 
                 var guid = driverObj.Id;
-                var item = UnitOfWork.Value.SubjectRepostitory.GetAllEntitiesAsync().Result.Where(x => x.Id == guid).FirstOrDefault();
+                var item = UnitOfWork.Value.CarRepository.GetAllEntitiesAsync().Result.Where(x => x.Id == guid).FirstOrDefault();
 
-                item.Name = driverObj.Name;
-                item.FinalTestType = driverObj.FinalTestType;
-                item.Hours = driverObj.Hours;
+                item.Brand = driverObj.Brand;
+                item.Model = driverObj.Model;
+                item.SerialNumber = driverObj.SerialNumber;
+                item.Color = driverObj.Color;
+                item.Price = driverObj.Price;
+                item.ManufacturerId = driverObj.ManufacturerId;
 
-                _ = UnitOfWork.Value.SubjectRepostitory.UpdateAsync(item).Result;
+                _ = UnitOfWork.Value.CarRepository.UpdateAsync(item).Result;
             }
             catch (Exception e)
             {
@@ -57,13 +60,13 @@ namespace WcfMsmqService.Services
         }
 
         [OperationBehavior(TransactionScopeRequired = true, TransactionAutoComplete = true)]
-        public void RemoveSubject(string driverId)
+        public void RemoveCar(string driverId)
         {
             try
             {
-                Console.WriteLine("Remove subject with id: " + driverId);
+                Console.WriteLine("Remove car with id: " + driverId);
                 var guid = Guid.Parse(driverId);
-                UnitOfWork.Value.SubjectRepostitory.DeleteAsync(guid);
+                UnitOfWork.Value.CarRepository.DeleteAsync(guid);
             }
             catch (Exception e)
             {
@@ -76,13 +79,13 @@ namespace WcfMsmqService.Services
         #region shifts
 
         [OperationBehavior(TransactionScopeRequired = true, TransactionAutoComplete = true)]
-        public void CreateSiG(string shift)
+        public void CreateCiO(string shift)
         {
             try
             {
-                Console.WriteLine("Recieved sig: " + shift);
+                Console.WriteLine("Recieved cio: " + shift);
 
-                _ = UnitOfWork.Value.SubjectInGroupRepository.CreateAsync(JsonConvert.DeserializeObject<SubjectInGroup>(shift)).Result;
+                _ = UnitOfWork.Value.CarInOrderRepository.CreateAsync(JsonConvert.DeserializeObject<CarInOrder>(shift)).Result;
             }
             catch (Exception e)
             {
@@ -92,20 +95,20 @@ namespace WcfMsmqService.Services
         }
 
         [OperationBehavior(TransactionScopeRequired = true, TransactionAutoComplete = true)]
-        public void UpdateSiG(string shift)
+        public void UpdateCiO(string shift)
         {
             try
             {
-                Console.WriteLine("Recieved updated sig: " + shift);
-                var shiftObj = JsonConvert.DeserializeObject<SubjectInGroup>(shift);
+                Console.WriteLine("Recieved updated cio: " + shift);
+                var shiftObj = JsonConvert.DeserializeObject<CarInOrder>(shift);
 
                 var guid = shiftObj.Id;
-                var item = UnitOfWork.Value.SubjectInGroupRepository.GetAllEntitiesAsync().Result.FirstOrDefault(x => x.Id == guid);
+                var item = UnitOfWork.Value.CarInOrderRepository.GetAllEntitiesAsync().Result.FirstOrDefault(x => x.Id == guid);
 
-                item.GroupId = shiftObj.GroupId;
-                item.SubjectId = shiftObj.SubjectId;
+                item.OrderId = shiftObj.OrderId;
+                item.CarId = shiftObj.CarId;
 
-                _ = UnitOfWork.Value.SubjectInGroupRepository.UpdateAsync(item).Result;
+                _ = UnitOfWork.Value.CarInOrderRepository.UpdateAsync(item).Result;
             }
             catch (Exception e)
             {
@@ -115,13 +118,13 @@ namespace WcfMsmqService.Services
         }
 
         [OperationBehavior(TransactionScopeRequired = true, TransactionAutoComplete = true)]
-        public void RemoveSiG(string shiftId)
+        public void RemoveCiO(string shiftId)
         {
             try
             {
-                Console.WriteLine("Remove sig with id: " + shiftId);
+                Console.WriteLine("Remove cio with id: " + shiftId);
                 var guid = Guid.Parse(shiftId);
-                _ = UnitOfWork.Value.SubjectInGroupRepository.DeleteAsync(guid).Result;
+                _ = UnitOfWork.Value.CarInOrderRepository.DeleteAsync(guid).Result;
             }
             catch (Exception e)
             {
@@ -134,16 +137,16 @@ namespace WcfMsmqService.Services
         #region routes
 
         [OperationBehavior(TransactionScopeRequired = true, TransactionAutoComplete = true)]
-        public void CreateGroup(string route)
+        public void CreateOrder(string route)
         {
             try
             {
-                Console.WriteLine("Recieved Group: " + route);
+                Console.WriteLine("Recieved order: " + route);
 
-                var routeObj = JsonConvert.DeserializeObject<Group>(route);
+                var routeObj = JsonConvert.DeserializeObject<Order>(route);
 
 
-                _ = UnitOfWork.Value.GroupRepository.CreateAsync(routeObj).Result;
+                _ = UnitOfWork.Value.OrderRepository.CreateAsync(routeObj).Result;
             }
             catch (Exception e)
             {
@@ -153,23 +156,25 @@ namespace WcfMsmqService.Services
         }
 
         [OperationBehavior(TransactionScopeRequired = true, TransactionAutoComplete = true)]
-        public void UpdateGroup(string route)
+        public void UpdateOrder(string route)
         {
             try
             {
-                Console.WriteLine("Recieved updated Group: " + route);
-                var routeObj = JsonConvert.DeserializeObject<Group>(route);
+                Console.WriteLine("Recieved updated order: " + route);
+                var routeObj = JsonConvert.DeserializeObject<Order>(route);
 
                 var guid = routeObj.Id;
 
-                var item = UnitOfWork.Value.GroupRepository.GetAllEntitiesAsync().Result.FirstOrDefault(x => x.Id == guid);
+                var item = UnitOfWork.Value.OrderRepository.GetAllEntitiesAsync().Result.FirstOrDefault(x => x.Id == guid);
 
-                item.GroupName = routeObj.GroupName;
-                item.StudyYear = routeObj.StudyYear;
-                item.MaxStudents = routeObj.MaxStudents;
+                item.StartDate = routeObj.StartDate;
+                item.EndDate = routeObj.EndDate;
+                item.Sum = routeObj.Sum;
+                item.CustomerId = routeObj.CustomerId;
+                item.ManagerId = routeObj.ManagerId;
 
 
-                _ = UnitOfWork.Value.GroupRepository.UpdateAsync(item).Result;
+                _ = UnitOfWork.Value.OrderRepository.UpdateAsync(item).Result;
             }
             catch (Exception e)
             {
@@ -179,13 +184,13 @@ namespace WcfMsmqService.Services
         }
 
         [OperationBehavior(TransactionScopeRequired = true, TransactionAutoComplete = true)]
-        public void RemoveGroup(string routeId)
+        public void RemoveOrder(string routeId)
         {
             try
             {
-                Console.WriteLine("Remove Group with id: " + routeId);
+                Console.WriteLine("Remove order with id: " + routeId);
                 var guid = Guid.Parse(routeId);
-                _ = UnitOfWork.Value.GroupRepository.DeleteAsync(guid).Result;
+                _ = UnitOfWork.Value.OrderRepository.DeleteAsync(guid).Result;
             }
             catch (Exception e)
             {

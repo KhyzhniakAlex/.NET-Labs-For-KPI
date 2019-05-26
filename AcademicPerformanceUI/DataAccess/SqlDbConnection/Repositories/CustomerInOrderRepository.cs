@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace DataAccess.SqlDbConnection.Repositories
 {
-    public class CustomerInOrderRepository : BaseRepository<CustomerInOrder>
+    public class CarInOrderRepository : BaseRepository<CarInOrder>
     {
-        public CustomerInOrderRepository(string sqlConnection) : base(sqlConnection)
+        public CarInOrderRepository(string sqlConnection) : base(sqlConnection)
         {
         }
 
-        public override Task<List<CustomerInOrder>> GetAllEntitiesAsync()
+        public override Task<List<CarInOrder>> GetAllEntitiesAsync()
         {
-            var text = SqlHelper.GetAllSqlText<CustomerInOrder>();
+            var text = SqlHelper.GetAllSqlText<CarInOrder>();
             var reader = ExecuteReader(text);
-            var list = new List<CustomerInOrder>();
+            var list = new List<CarInOrder>();
             while (reader.Read())
             {
-                list.Add(new CustomerInOrder()
+                list.Add(new CarInOrder()
                 {
                     Id = (Guid)reader["Id"],
                     OrderId = (Guid)reader["OrderId"],

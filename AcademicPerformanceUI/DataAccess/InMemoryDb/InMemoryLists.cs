@@ -12,17 +12,17 @@ namespace DataAccess.InMemoryDb
             Customers = new List<Customer>();
             Cars = new List<Car>();
             Manufacturers = new List<Manufacturer>();
-            CustomerInOrders = new List<CustomerInOrder>();
+            CarInOrders = new List<CarInOrder>();
             Managers = new List<Manager>();
 
-            Managers.Add(new Manager()
+            Cars.Add(new Car()
             {
                 Id = Guid.NewGuid(),
-                FirstName = "Oleksandr",
-                LastName = "Khyzhniak",
-                PhoneNumber = "+380507896456",
-                Salary = 25000,
-                Position = "Administrator"
+                Brand = "Masda",
+                Model = "6",
+                SerialNumber = "N78TY85YJ45",
+                Color = "Red",
+                Price = 250000
             });
         }
 
@@ -31,6 +31,6 @@ namespace DataAccess.InMemoryDb
         public static List<Car> Cars;
         public static List<Manager> Managers;
         public static List<Manufacturer> Manufacturers;
-        public static List<CustomerInOrder> CustomerInOrders;
+        public static List<CarInOrder> CarInOrders;
     }
 }

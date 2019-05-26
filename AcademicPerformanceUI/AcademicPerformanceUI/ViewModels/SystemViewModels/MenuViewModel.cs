@@ -17,7 +17,7 @@ namespace AcademicPerformanceUI.ViewModels
             this.Menu.Add(new MenuItem() { Icon = new PackIconFontAwesome() { Kind = PackIconFontAwesomeKind.CoffeeSolid }, Text = "Cars", NavigationDestination = new Uri("Views/CarView.xaml", UriKind.RelativeOrAbsolute) });
             this.Menu.Add(new MenuItem() { Icon = new PackIconFontAwesome() { Kind = PackIconFontAwesomeKind.UserSlashSolid }, Text = "Managers", NavigationDestination = new Uri("Views/ManagerView.xaml", UriKind.RelativeOrAbsolute) });
             this.Menu.Add(new MenuItem() { Icon = new PackIconFontAwesome() { Kind = PackIconFontAwesomeKind.MarkerSolid }, Text = "Manufacturers", NavigationDestination = new Uri("Views/ManufacturerView.xaml", UriKind.RelativeOrAbsolute) });
-            this.Menu.Add(new MenuItem() { Icon = new PackIconFontAwesome() { Kind = PackIconFontAwesomeKind.AngrySolid }, Text = "CustomerInOrder", NavigationDestination = new Uri("Views/CustomerInOrder.xaml", UriKind.RelativeOrAbsolute) });
+            this.Menu.Add(new MenuItem() { Icon = new PackIconFontAwesome() { Kind = PackIconFontAwesomeKind.AngrySolid }, Text = "CarInOrder", NavigationDestination = new Uri("Views/CarInOrder.xaml", UriKind.RelativeOrAbsolute) });
 
             this.OptionsMenu.Add(new MenuItem() { Icon = new PackIconFontAwesome() { Kind = PackIconFontAwesomeKind.CogsSolid }, Text = "Settings", NavigationDestination = new Uri("Views/SettingsView.xaml", UriKind.RelativeOrAbsolute) });
         }
