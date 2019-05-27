@@ -24,7 +24,8 @@ namespace WcfRestService.Services
                             StartDate = dtoEntity.StartDate,
                             EndDate = dtoEntity.EndDate,
                             Sum = dtoEntity.Sum,
-                            CustomerId = dtoEntity.CustomerId
+                            CustomerId = dtoEntity.CustomerId,
+                            ManagerId = dtoEntity.ManagerId
                         };
                     }
                 case "CustomerDto":
@@ -51,14 +52,13 @@ namespace WcfRestService.Services
                             SerialNumber = dtoEntity.SerialNumber,
                             Color = dtoEntity.Color,
                             Price = dtoEntity.Price,
-                            ManufacturerId = dtoEntity.ManufacturerId,
-                            ManagerId = dtoEntity.ManagerId
+                            ManufacturerId = dtoEntity.ManufacturerId
                         };
                     }
-                case "CustomerInOrderDto":
+                case "CarInOrderDto":
                     {
-                        var dtoEntity = (CustomerInOrderDto)(IBaseDto)entity;
-                        return new CustomerInOrder()
+                        var dtoEntity = (CarInOrderDto)(IBaseDto)entity;
+                        return new CarInOrder()
                         {
                             Id = dtoEntity.Id,
                             OrderId = dtoEntity.OrderId,
@@ -107,7 +107,8 @@ namespace WcfRestService.Services
                             StartDate = dtoEntity.StartDate,
                             EndDate = dtoEntity.EndDate,
                             Sum = dtoEntity.Sum,
-                            CustomerId = dtoEntity.CustomerId
+                            CustomerId = dtoEntity.CustomerId,
+                            ManagerId = dtoEntity.ManagerId
                         };
                     }
                 case "Customer":
@@ -134,14 +135,13 @@ namespace WcfRestService.Services
                             SerialNumber = dtoEntity.SerialNumber,
                             Color = dtoEntity.Color,
                             Price = dtoEntity.Price,
-                            ManufacturerId = dtoEntity.ManufacturerId,
-                            ManagerId = dtoEntity.ManagerId
+                            ManufacturerId = dtoEntity.ManufacturerId
                         };
                     }
-                case "CustomerInOrder":
+                case "CarInOrder":
                     {
-                        var dtoEntity = (CustomerInOrder)entity;
-                        return new CustomerInOrderDto()
+                        var dtoEntity = (CarInOrder)entity;
+                        return new CarInOrderDto()
                         {
                             Id = dtoEntity.Id,
                             OrderId = dtoEntity.OrderId,

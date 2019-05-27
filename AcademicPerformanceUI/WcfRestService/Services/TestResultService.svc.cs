@@ -5,8 +5,8 @@ using WcfRestService.ServiceInterfaces;
 
 namespace WcfRestService.Services
 {
-    [ServiceBehavior(IncludeExceptionDetailInFaults = true)]
-    public class TestResultService :BaseService<TestResultDto,TestResult>, ITestResultService
-    {
-    }
+    //[ServiceBehavior(IncludeExceptionDetailInFaults = true)]
+    //public class TestResultService :BaseService<TestResultDto,TestResult>, ITestResultService
+    //{
+    //}
 }
