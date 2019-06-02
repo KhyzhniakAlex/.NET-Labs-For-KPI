@@ -15,6 +15,7 @@
                     <h6>SerialNumber:  <%#Eval("SerialNumber") %></h6>
                     <h6>Color:  <%#Eval("Color") %></h6>
                     <h6>Price:  <%#Eval("Price") %></h6>
+                    <h6>Manufacturer:  <%#Eval("Manufacturer") %></h6>
                 </div>
                 <asp:Button ID="test" runat="server" CommandName="Update" CommandArgument='<%# Eval("Id") %>' class='btn btn-info' Text="Update"></asp:Button>
                 <asp:Button ID="btnDelete" runat="server" CommandName="Delete" CommandArgument='<%# Eval("Id") %>' class='btn btn-info' Text="Delete"></asp:Button>

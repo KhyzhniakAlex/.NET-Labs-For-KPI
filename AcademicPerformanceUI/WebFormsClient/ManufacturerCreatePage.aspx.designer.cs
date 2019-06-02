@@ -10,7 +10,7 @@
 namespace WebFormsClient {
     
     
-    public partial class CarInOrderCreatePage {
+    public partial class ManufacturerCreatePage {
         
         /// <summary>
         /// Label элемент управления.
@@ -22,22 +22,31 @@ namespace WebFormsClient {
         protected global::System.Web.UI.WebControls.Label Label;
         
         /// <summary>
-        /// dropdownCar элемент управления.
+        /// manufacturerName элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropdownCar;
+        protected global::System.Web.UI.WebControls.TextBox manufacturerName;
         
         /// <summary>
-        /// dropdownOrder элемент управления.
+        /// manufacturerOfficePhoneNumber элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropdownOrder;
+        protected global::System.Web.UI.WebControls.TextBox manufacturerOfficePhoneNumber;
+        
+        /// <summary>
+        /// manufacturerCountry элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox manufacturerCountry;
         
         /// <summary>
         /// btnCreate элемент управления.

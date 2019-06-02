@@ -66,7 +66,6 @@
     <Content Include="Services\CarInOrderService.svc" />
     <Content Include="Services\CarService.svc" />
     <Content Include="Services\ManagerService.svc" />
-    <Content Include="Services\TestResultService.svc" />
     <Content Include="Services\ManufacturerService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -78,7 +77,6 @@
     <Compile Include="DTOModels\CarInOrderDto.cs" />
     <Compile Include="DTOModels\ManagerDto.cs" />
     <Compile Include="DTOModels\ManufacturerDto.cs" />
-    <Compile Include="DTOModels\TestResultDto.cs" />
     <Compile Include="ServiceInterfaces\IServiceInterfaces.cs" />
     <Compile Include="Services\BaseService.cs" />
     <Compile Include="Services\OrderService.svc.cs">
@@ -98,9 +96,6 @@
     </Compile>
     <Compile Include="Services\ManagerService.svc.cs">
       <DependentUpon>ManagerService.svc</DependentUpon>
-    </Compile>
-    <Compile Include="Services\TestResultService.svc.cs">
-      <DependentUpon>TestResultService.svc</DependentUpon>
     </Compile>
     <Compile Include="Services\ManufacturerService.svc.cs">
       <DependentUpon>ManufacturerService.svc</DependentUpon>

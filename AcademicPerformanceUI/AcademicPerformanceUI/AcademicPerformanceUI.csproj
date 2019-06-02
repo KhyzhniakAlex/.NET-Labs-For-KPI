@@ -85,9 +85,6 @@
     <Compile Include="Views\ManagerView.xaml.cs">
       <DependentUpon>ManagerView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TestResultView.xaml.cs">
-      <DependentUpon>TestResultView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\ManufacturerView.xaml.cs">
       <DependentUpon>ManufacturerView.xaml</DependentUpon>
     </Compile>
@@ -113,7 +110,6 @@
     <Compile Include="ViewModels\CarInOrderViewModel.cs" />
     <Compile Include="ViewModels\CarViewModel.cs" />
     <Compile Include="ViewModels\ManagerViewModel.cs" />
-    <Compile Include="ViewModels\TestResultViewModel.cs" />
     <Compile Include="ViewModels\ManufacturerViewModel.cs" />
     <Compile Include="Views\OrderView.xaml.cs">
       <DependentUpon>OrderView.xaml</DependentUpon>
@@ -139,10 +135,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ManagerView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\TestResultView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

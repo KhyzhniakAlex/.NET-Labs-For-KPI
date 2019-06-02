@@ -11,6 +11,7 @@ namespace WebFormsClient
     {
         private Guid _id;
         private WebClientCrudService<CarDto> client = new WebClientCrudService<CarDto>("CarService.svc");
+        private WebClientCrudService<ManufacturerDto> forManufact = new WebClientCrudService<ManufacturerDto>("ManufacturerService.svc");
         protected void Page_Load(object sender, EventArgs e)
         {
             var id = Request.QueryString["Id"];
@@ -23,12 +24,15 @@ namespace WebFormsClient
                 if (id != null)
                 {
                     var _loadedCar = client.GetEntities().Where(i => i.Id == Guid.Parse(id)).FirstOrDefault();
+                    var manufactID = _loadedCar.ManufacturerId;
+                    var _loadedManufact = forManufact.GetEntities().Where(i => i.Id == manufactID).FirstOrDefault();
 
                     carBrand.Text = _loadedCar.Brand;
                     carModel.Text = _loadedCar.Model;
                     carSerialNumber.Text = _loadedCar.SerialNumber;
                     carColor.Text = _loadedCar.Color;
                     carPrice.Text = _loadedCar.Price.ToString();
+                    carManufacturer.Text = _loadedManufact != null ? _loadedManufact.Name : "";
 
                     btnCreate.Visible = false;
                     Label.Text = "Update car";
@@ -51,8 +55,8 @@ namespace WebFormsClient
             car.Color = carColor.Text;
             car.Price = int.Parse(carPrice.Text);
 
-            //ManufacturerDto manufact = Manu
-            //car.ManufacturerId = 
+            var _loadedManufact = forManufact.GetEntities().Where(i => i.Name == carManufacturer.Text).FirstOrDefault();
+            car.ManufacturerId = _loadedManufact != null ? _loadedManufact.Id : Guid.Empty;
 
             using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required))
             {
@@ -74,7 +78,10 @@ namespace WebFormsClient
             car.SerialNumber = carSerialNumber.Text;
             car.Color = carColor.Text;
             car.Price = int.Parse(carPrice.Text);
-            //manufacturer
+
+            var _loadedManufact = forManufact.GetEntities().Where(i => i.Name == carManufacturer.Text).FirstOrDefault();
+            if (_loadedManufact != null)
+                car.ManufacturerId = _loadedManufact.Id;
 
             using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required))
             {

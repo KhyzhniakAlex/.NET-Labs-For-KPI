@@ -125,8 +125,8 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="OrderCreatePage.aspx" />
-    <Content Include="GroupsPage.aspx" />
+    <Content Include="ManufacturerCreatePage.aspx" />
+    <Content Include="ManufacturersPage.aspx" />
     <Content Include="Properties\DataSources\WcfRestService.DTOModels.GroupDto.datasource" />
     <Content Include="Properties\DataSources\WcfRestService.DTOModels.SubjectInGroupDto.datasource" />
     <Content Include="Properties\DataSources\WcfRestService.DTOModels.SubjectDto.datasource" />
@@ -161,8 +161,6 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="CarCreatePage.aspx" />
-    <Content Include="CarInOrderCreatePage.aspx" />
-    <Content Include="CarInOrdersPage.aspx" />
     <Content Include="CarPage.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -176,19 +174,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="OrderCreatePage.aspx.cs">
-      <DependentUpon>OrderCreatePage.aspx</DependentUpon>
+    <Compile Include="ManufacturerCreatePage.aspx.cs">
+      <DependentUpon>ManufacturerCreatePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="OrderCreatePage.aspx.designer.cs">
-      <DependentUpon>OrderCreatePage.aspx</DependentUpon>
+    <Compile Include="ManufacturerCreatePage.aspx.designer.cs">
+      <DependentUpon>ManufacturerCreatePage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GroupsPage.aspx.cs">
-      <DependentUpon>GroupsPage.aspx</DependentUpon>
+    <Compile Include="ManufacturersPage.aspx.cs">
+      <DependentUpon>ManufacturersPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GroupsPage.aspx.designer.cs">
-      <DependentUpon>GroupsPage.aspx</DependentUpon>
+    <Compile Include="ManufacturersPage.aspx.designer.cs">
+      <DependentUpon>ManufacturersPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
@@ -211,20 +209,6 @@
     </Compile>
     <Compile Include="CarCreatePage.aspx.designer.cs">
       <DependentUpon>CarCreatePage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CarInOrderCreatePage.aspx.cs">
-      <DependentUpon>CarInOrderCreatePage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CarInOrderCreatePage.aspx.designer.cs">
-      <DependentUpon>CarInOrderCreatePage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CarInOrdersPage.aspx.cs">
-      <DependentUpon>CarInOrdersPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CarInOrdersPage.aspx.designer.cs">
-      <DependentUpon>CarInOrdersPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="CarPage.aspx.cs">
       <DependentUpon>CarPage.aspx</DependentUpon>

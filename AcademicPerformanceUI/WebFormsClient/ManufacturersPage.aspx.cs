@@ -5,9 +5,9 @@ using WcfRestService.DTOModels;
 
 namespace WebFormsClient
 {
-    public partial class GroupsPage : System.Web.UI.Page
+    public partial class ManufacturersPage : System.Web.UI.Page
     {
-        private WebClientCrudService<GroupDto> webClient = new WebClientCrudService<GroupDto>("GroupService.svc");
+        private WebClientCrudService<ManufacturerDto> webClient = new WebClientCrudService<ManufacturerDto>("ManufacturerService.svc");
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -30,16 +30,16 @@ namespace WebFormsClient
                         scope.Complete();
                     }
 
-                    Response.Redirect("groupspage");
+                    Response.Redirect("manufacturerspage");
                     break;
                 case "Update":
-                    Response.Redirect("groupCreatePage?ID=" + e.CommandArgument);
+                    Response.Redirect("manufacturerCreatePage?ID=" + e.CommandArgument);
                     break;
             }
         }
         protected void OnClick(object sender, EventArgs e)
         {
-            Response.Redirect("groupCreatePage");
+            Response.Redirect("manufacturerCreatePage");
         }
 }
 }
