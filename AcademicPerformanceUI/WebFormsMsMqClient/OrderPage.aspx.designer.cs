@@ -10,7 +10,7 @@
 namespace WebFormsMsMqClient {
     
     
-    public partial class OrdersPage {
+    public partial class OrderPage {
         
         /// <summary>
         /// Repeater элемент управления.

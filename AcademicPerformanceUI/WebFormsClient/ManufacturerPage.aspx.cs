@@ -5,7 +5,7 @@ using WcfRestService.DTOModels;
 
 namespace WebFormsClient
 {
-    public partial class ManufacturersPage : System.Web.UI.Page
+    public partial class ManufacturerPage : System.Web.UI.Page
     {
         private WebClientCrudService<ManufacturerDto> webClient = new WebClientCrudService<ManufacturerDto>("ManufacturerService.svc");
 
@@ -30,7 +30,7 @@ namespace WebFormsClient
                         scope.Complete();
                     }
 
-                    Response.Redirect("manufacturerspage");
+                    Response.Redirect("manufacturerpage");
                     break;
                 case "Update":
                     Response.Redirect("manufacturerCreatePage?ID=" + e.CommandArgument);

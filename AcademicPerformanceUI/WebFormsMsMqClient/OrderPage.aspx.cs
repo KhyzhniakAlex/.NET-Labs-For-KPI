@@ -1,17 +1,17 @@
-﻿using System;
-using System.Web.UI.WebControls;
-using System.Transactions;
-using System.Threading;
+﻿using DataAccess.Interfaces;
 using DataAccess.Models;
-using DataAccess.Interfaces;
+using System;
+using System.Transactions;
+using System.Web.UI.WebControls;
 using WebFormsMsMqClient.AcademicService;
 
 namespace WebFormsMsMqClient
 {
-    public partial class SubjectsPage : System.Web.UI.Page
+    public partial class OrderPage : System.Web.UI.Page
     {
-        private readonly IRepository<Subject> Repository = Singleton.UnitOfWork.SubjectRepostitory;
+        private readonly IRepository<Order> Repository = Singleton.UnitOfWork.OrderRepository;
         private readonly AcademicServiceClient serviceClient = new AcademicServiceClient();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -28,21 +28,21 @@ namespace WebFormsMsMqClient
                 case "Delete":
                     using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required))
                     {
-                        serviceClient.RemoveSubject(e.CommandArgument.ToString());
+                        serviceClient.RemoveOrder(e.CommandArgument.ToString());
+
                         scope.Complete();
                     }
-                    Thread.Sleep(3000);
-                    Response.Redirect("subjectspage");
-                    break;
 
+                    Response.Redirect("orderpage");
+                    break;
                 case "Update":
-                    Response.Redirect("subjectCreatePage?ID=" + e.CommandArgument);
+                    Response.Redirect("orderCreatePage?ID=" + e.CommandArgument);
                     break;
             }
         }
         protected void OnClick(object sender, EventArgs e)
         {
-            Response.Redirect("subjectCreatePage");
+            Response.Redirect("orderCreatePage");
         }
-    }
+}
 }

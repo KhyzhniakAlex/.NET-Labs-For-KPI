@@ -53,7 +53,7 @@ namespace WebFormsClient
                 scope.Complete();
             }
 
-            Response.Redirect("manufacturersPage");
+            Response.Redirect("manufacturerPage");
         }
 
         protected void btnUpdate_Click(object sender, EventArgs e)
@@ -69,7 +69,7 @@ namespace WebFormsClient
                 scope.Complete();
             }
 
-            Response.Redirect("manufacturersPage");
+            Response.Redirect("manufacturerPage");
         }
     }
 }

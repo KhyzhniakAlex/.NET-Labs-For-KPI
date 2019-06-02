@@ -14,6 +14,8 @@ namespace WebFormsMsMqClient
     {
         private Guid _id;
         private readonly IRepository<Order> Repository = Singleton.UnitOfWork.OrderRepository;
+        private readonly IRepository<Manager> RepoManager = Singleton.UnitOfWork.ManagerRepository;
+        private readonly IRepository<Customer> RepoCustomer = Singleton.UnitOfWork.CustomerRepository;
         private readonly AcademicServiceClient serviceClient = new AcademicServiceClient();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,11 +31,17 @@ namespace WebFormsMsMqClient
                 if (id != null)
                 {
                     var _loadedOrder = Repository.GetAllEntitiesAsync().Result.Where(i => i.Id == Guid.Parse(id)).FirstOrDefault();
+                    var managerID = _loadedOrder.ManagerId;
+                    var _loadedManager = RepoManager.GetAllEntitiesAsync().Result.Where(i => i.Id == managerID).FirstOrDefault();
+                    var customerID = _loadedOrder.CustomerId;
+                    var _loadedCustomer = RepoCustomer.GetAllEntitiesAsync().Result.Where(i => i.Id == customerID).FirstOrDefault();
 
                     orderStartDate.Text = _loadedOrder.StartDate.ToString();
                     orderEndDate.Text = _loadedOrder.EndDate.ToString();
                     orderSum.Text = _loadedOrder.Sum.ToString();
-
+                    orderManagerId.Text = _loadedManager != null ? _loadedManager.LastName : "";
+                    orderCustomerId.Text = _loadedCustomer != null? _loadedCustomer.AccoutId : "";
+                    
                     btnCreate.Visible = false;
                     Label.Text = "Update order";
                 }
@@ -53,33 +61,48 @@ namespace WebFormsMsMqClient
             subject.EndDate = DateTime.Parse(orderEndDate.Text);
             subject.Sum = int.Parse(orderSum.Text);
 
+            var _loadedManager = RepoManager.GetAllEntitiesAsync().Result.Where(i => i.LastName == orderManagerId.Text).FirstOrDefault();
+            subject.ManagerId = _loadedManager != null ? _loadedManager.Id : Guid.Empty;
+
+            var _loadedCustomer = RepoCustomer.GetAllEntitiesAsync().Result.Where(i => i.AccoutId == orderCustomerId.Text).FirstOrDefault();
+            subject.CustomerId = _loadedCustomer != null ? _loadedCustomer.Id : Guid.Empty;
+
             using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required))
             {
                 var serialized = JsonConvert.SerializeObject(subject);
-                serviceClient.CreateGroup(serialized);
+                serviceClient.CreateOrder(serialized);
                 scope.Complete();
             }
             Thread.Sleep(3000);
 
-            Response.Redirect("ordersPage");
+            Response.Redirect("orderPage");
         }
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
-            var group = Repository.GetAllEntitiesAsync().Result.Where(sub => sub.Id == _id).FirstOrDefault();
-            group.GroupName = groupName.Text;
-            group.MaxStudents = int.Parse(groupMaxStudents.Text);
-            group.StudyYear = int.Parse(groupStudyYear.Text);
+            var order = Repository.GetAllEntitiesAsync().Result.Where(sub => sub.Id == _id).FirstOrDefault();
+
+            order.StartDate = DateTime.Parse(orderStartDate.Text);
+            order.EndDate = DateTime.Parse(orderEndDate.Text);
+            order.Sum = int.Parse(orderSum.Text);
+
+            var _loadedManager = RepoManager.GetAllEntitiesAsync().Result.Where(i => i.LastName == orderManagerId.Text).FirstOrDefault();
+            if (_loadedManager != null)
+                order.ManagerId = _loadedManager.Id;
+
+            var _loadedCustomer = RepoCustomer.GetAllEntitiesAsync().Result.Where(i => i.AccoutId == orderCustomerId.Text).FirstOrDefault();
+            if (_loadedCustomer != null)
+                order.CustomerId = _loadedCustomer.Id;
 
             using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required))
             {
-                var serialized = JsonConvert.SerializeObject(group);
+                var serialized = JsonConvert.SerializeObject(order);
 
-                serviceClient.UpdateGroup(serialized);
+                serviceClient.UpdateOrder(serialized);
                 scope.Complete();
             }
 
-            Response.Redirect("groupsPage");
+            Response.Redirect("orderPage");
         }
     }
 }

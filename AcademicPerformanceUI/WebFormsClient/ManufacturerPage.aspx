@@ -1,18 +1,18 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OrdersPage.aspx.cs" Inherits="WebFormsMsMqClient.OrdersPage" MasterPageFile="~/Site.Master"%>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ManufacturerPage.aspx.cs" Inherits="WebFormsClient.ManufacturersPage" MasterPageFile="~/Site.Master"%>
 <%@ Import Namespace="WcfRestService.DTOModels" %>
 
-<asp:Content ID="OrdersPage" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="ManufacturersPage" ContentPlaceHolderID="MainContent" runat="server">
     <div>
-        <h1>Orders list </h1>
+        <h1>Manufacturers list </h1>
         <asp:Button runat="server" class='btn btn-warning' OnClick="OnClick" Text="Create" role='button'></asp:Button>
         <hr>
         <asp:Repeater ID="Repeater" runat="server" onitemcommand="Repeater1_ItemCommand">
             <ItemTemplate>
                 <div>
                     <span>Id: <%#Eval("Id") %></span>
-                    <h5>StartDate: <%#Eval("StartDate") %></h5>
-                    <h5>EndDate:  <%#Eval("EndDate") %></h5>
-                    <h6>Sum:  <%#Eval("Sum") %></h6>
+                    <h5>Name: <%#Eval("Name") %></h5>
+                    <h6>OfficePhoneNumber:  <%#Eval("OfficePhoneNumber") %></h6>
+                    <h6>Country:  <%#Eval("Country") %></h6>
                 </div>
                 <asp:Button ID="test" runat="server" CommandName="Update" CommandArgument='<%# Eval("Id") %>' class='btn btn-info' Text="Update"></asp:Button>
                 <asp:Button ID="btnDelete" runat="server" CommandName="Delete" CommandArgument='<%# Eval("Id") %>' class='btn btn-info' Text="Delete"></asp:Button>

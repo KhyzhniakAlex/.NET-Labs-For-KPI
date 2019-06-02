@@ -10,7 +10,7 @@
 namespace WebFormsMsMqClient {
     
     
-    public partial class OrderCreatePage {
+    public partial class CarCreatePage {
         
         /// <summary>
         /// Label элемент управления.
@@ -22,49 +22,58 @@ namespace WebFormsMsMqClient {
         protected global::System.Web.UI.WebControls.Label Label;
         
         /// <summary>
-        /// orderStartDate элемент управления.
+        /// carBrand элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox orderStartDate;
+        protected global::System.Web.UI.WebControls.TextBox carBrand;
         
         /// <summary>
-        /// orderEndDate элемент управления.
+        /// carModel элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox orderEndDate;
+        protected global::System.Web.UI.WebControls.TextBox carModel;
         
         /// <summary>
-        /// orderSum элемент управления.
+        /// carSerialNumber элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox orderSum;
+        protected global::System.Web.UI.WebControls.TextBox carSerialNumber;
         
         /// <summary>
-        /// orderManagerId элемент управления.
+        /// carColor элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox orderManagerId;
+        protected global::System.Web.UI.WebControls.TextBox carColor;
         
         /// <summary>
-        /// orderCustomerId элемент управления.
+        /// carPrice элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox orderCustomerId;
+        protected global::System.Web.UI.WebControls.TextBox carPrice;
+        
+        /// <summary>
+        /// carManufacturerId элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox carManufacturerId;
         
         /// <summary>
         /// btnCreate элемент управления.

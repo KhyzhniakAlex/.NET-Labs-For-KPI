@@ -29,7 +29,7 @@ namespace WebFormsClient
                         scope.Complete();
                     }
                     Thread.Sleep(3000);
-                    Response.Redirect("carsPage");
+                    Response.Redirect("carPage");
                     break;
 
                 case "Update":

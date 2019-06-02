@@ -7,9 +7,10 @@
 // </автоматически создаваемое>
 //------------------------------------------------------------------------------
 
-namespace WebFormsClient
-{
-    public partial class ManufacturersPage {
+namespace WebFormsMsMqClient {
+    
+    
+    public partial class CarPage {
         
         /// <summary>
         /// Repeater элемент управления.

@@ -1,22 +1,22 @@
 ﻿using DataAccess.Interfaces;
 using DataAccess.Models;
 using System;
+using System.Threading;
 using System.Transactions;
 using System.Web.UI.WebControls;
 using WebFormsMsMqClient.AcademicService;
 
 namespace WebFormsMsMqClient
 {
-    public partial class OrdersPage : System.Web.UI.Page
+    public partial class CarInOrdersPage : System.Web.UI.Page
     {
-        private readonly IRepository<Order> Repository = Singleton.UnitOfWork.OrderRepository;
+        private readonly IRepository<CarInOrder> SubjectInGroupRepository = Singleton.UnitOfWork.CarInOrderRepository;
         private readonly AcademicServiceClient serviceClient = new AcademicServiceClient();
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                Repeater.DataSource = Repository.GetAllEntitiesAsync().Result;
+                Repeater.DataSource = SubjectInGroupRepository.GetAllEntitiesAsync().Result;
                 Repeater.DataBind();
             }
         }
@@ -28,21 +28,22 @@ namespace WebFormsMsMqClient
                 case "Delete":
                     using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required))
                     {
-                        serviceClient.RemoveGroup(e.CommandArgument.ToString());
+                        serviceClient.RemoveCiO(e.CommandArgument.ToString());
 
                         scope.Complete();
                     }
 
-                    Response.Redirect("orderspage");
+                    Thread.Sleep(3000);
+                    Response.Redirect("carinorderspage");
                     break;
                 case "Update":
-                    Response.Redirect("orderCreatePage?ID=" + e.CommandArgument);
+                    Response.Redirect("carinorderCreatePage?ID=" + e.CommandArgument);
                     break;
             }
         }
         protected void OnClick(object sender, EventArgs e)
         {
-            Response.Redirect("orderCreatePage");
+            Response.Redirect("carinorderCreatePage");
         }
-}
+    }
 }

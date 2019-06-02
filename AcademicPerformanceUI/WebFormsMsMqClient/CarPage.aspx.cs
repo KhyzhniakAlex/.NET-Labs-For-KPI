@@ -1,22 +1,22 @@
-﻿using DataAccess.Interfaces;
-using DataAccess.Models;
-using System;
-using System.Threading;
-using System.Transactions;
+﻿using System;
 using System.Web.UI.WebControls;
+using System.Transactions;
+using System.Threading;
+using DataAccess.Models;
+using DataAccess.Interfaces;
 using WebFormsMsMqClient.AcademicService;
 
 namespace WebFormsMsMqClient
 {
-    public partial class SubjectInGroupsPage : System.Web.UI.Page
+    public partial class CarPage : System.Web.UI.Page
     {
-        private readonly IRepository<SubjectInGroup> SubjectInGroupRepository = Singleton.UnitOfWork.SubjectInGroupRepository;
+        private readonly IRepository<Car> Repository = Singleton.UnitOfWork.CarRepository;
         private readonly AcademicServiceClient serviceClient = new AcademicServiceClient();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                Repeater.DataSource = SubjectInGroupRepository.GetAllEntitiesAsync().Result;
+                Repeater.DataSource = Repository.GetAllEntitiesAsync().Result;
                 Repeater.DataBind();
             }
         }
@@ -28,22 +28,21 @@ namespace WebFormsMsMqClient
                 case "Delete":
                     using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required))
                     {
-                        serviceClient.RemoveSiG(e.CommandArgument.ToString());
-
+                        serviceClient.RemoveCar(e.CommandArgument.ToString());
                         scope.Complete();
                     }
-
                     Thread.Sleep(3000);
-                    Response.Redirect("subjectingroupspage");
+                    Response.Redirect("carpage");
                     break;
+
                 case "Update":
-                    Response.Redirect("subjectingroupCreatePage?ID=" + e.CommandArgument);
+                    Response.Redirect("carCreatePage?ID=" + e.CommandArgument);
                     break;
             }
         }
         protected void OnClick(object sender, EventArgs e)
         {
-            Response.Redirect("subjectingroupCreatePage");
+            Response.Redirect("carCreatePage");
         }
     }
 }

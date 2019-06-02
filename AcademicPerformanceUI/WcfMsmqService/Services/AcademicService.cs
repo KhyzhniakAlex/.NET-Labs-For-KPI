@@ -164,7 +164,6 @@ namespace WcfMsmqService.Services
                 var routeObj = JsonConvert.DeserializeObject<Order>(route);
 
                 var guid = routeObj.Id;
-
                 var item = UnitOfWork.Value.OrderRepository.GetAllEntitiesAsync().Result.FirstOrDefault(x => x.Id == guid);
 
                 item.StartDate = routeObj.StartDate;
@@ -172,7 +171,6 @@ namespace WcfMsmqService.Services
                 item.Sum = routeObj.Sum;
                 item.CustomerId = routeObj.CustomerId;
                 item.ManagerId = routeObj.ManagerId;
-
 
                 _ = UnitOfWork.Value.OrderRepository.UpdateAsync(item).Result;
             }

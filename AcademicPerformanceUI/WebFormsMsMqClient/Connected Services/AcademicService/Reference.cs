@@ -15,59 +15,59 @@ namespace WebFormsMsMqClient.AcademicService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="AcademicService.IAcademicService")]
     public interface IAcademicService {
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAcademicService/CreateSubject")]
-        void CreateSubject(string Subject);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAcademicService/CreateCar")]
+        void CreateCar(string Car);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAcademicService/CreateSubject")]
-        System.Threading.Tasks.Task CreateSubjectAsync(string Subject);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAcademicService/CreateCar")]
+        System.Threading.Tasks.Task CreateCarAsync(string Car);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAcademicService/UpdateSubject")]
-        void UpdateSubject(string updatedSubject);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAcademicService/UpdateCar")]
+        void UpdateCar(string updatedCar);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAcademicService/UpdateSubject")]
-        System.Threading.Tasks.Task UpdateSubjectAsync(string updatedSubject);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAcademicService/UpdateCar")]
+        System.Threading.Tasks.Task UpdateCarAsync(string updatedCar);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAcademicService/RemoveSubject")]
-        void RemoveSubject(string SubjectId);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAcademicService/RemoveCar")]
+        void RemoveCar(string CarId);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAcademicService/RemoveSubject")]
-        System.Threading.Tasks.Task RemoveSubjectAsync(string SubjectId);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action= "http://tempuri.org/IAcademicService/RemoveCar")]
+        System.Threading.Tasks.Task RemoveCarAsync(string CarId);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAcademicService/CreateGroup")]
-        void CreateGroup(string Group);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAcademicService/CreateOrder")]
+        void CreateOrder(string Order);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAcademicService/CreateGroup")]
-        System.Threading.Tasks.Task CreateGroupAsync(string Group);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action= "http://tempuri.org/IAcademicService/CreateOrder")]
+        System.Threading.Tasks.Task CreateOrderAsync(string Order);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAcademicService/UpdateGroup")]
-        void UpdateGroup(string updatedGroup);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action= "http://tempuri.org/IAcademicService/UpdateOrder")]
+        void UpdateOrder(string updatedOrder);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAcademicService/UpdateGroup")]
-        System.Threading.Tasks.Task UpdateGroupAsync(string updatedGroup);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action= "http://tempuri.org/IAcademicService/UpdateOrder")]
+        System.Threading.Tasks.Task UpdateOrderAsync(string updatedOrder);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAcademicService/RemoveGroup")]
-        void RemoveGroup(string GroupId);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action= "http://tempuri.org/IAcademicService/RemoveOrder")]
+        void RemoveOrder(string OrderId);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAcademicService/RemoveGroup")]
-        System.Threading.Tasks.Task RemoveGroupAsync(string GroupId);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action= "http://tempuri.org/IAcademicService/RemoveOrder")]
+        System.Threading.Tasks.Task RemoveOrderAsync(string OrderId);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAcademicService/CreateSiG")]
-        void CreateSiG(string SiG);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAcademicService/CreateCiO")]
+        void CreateCiO(string CiO);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAcademicService/CreateSiG")]
-        System.Threading.Tasks.Task CreateSiGAsync(string SiG);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action= "http://tempuri.org/IAcademicService/CreateCiO")]
+        System.Threading.Tasks.Task CreateCiOAsync(string CiO);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAcademicService/UpdateSiG")]
-        void UpdateSiG(string updatedSiG);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action= "http://tempuri.org/IAcademicService/UpdateCiO")]
+        void UpdateCiO(string updatedCiO);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAcademicService/UpdateSiG")]
-        System.Threading.Tasks.Task UpdateSiGAsync(string updatedSiG);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action= "http://tempuri.org/IAcademicService/UpdateCiO")]
+        System.Threading.Tasks.Task UpdateCiOAsync(string updatedCiO);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAcademicService/RemoveSiG")]
-        void RemoveSiG(string SiGId);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action= "http://tempuri.org/IAcademicService/RemoveCiO")]
+        void RemoveCiO(string CiOId);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAcademicService/RemoveSiG")]
-        System.Threading.Tasks.Task RemoveSiGAsync(string SiGId);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action= "http://tempuri.org/IAcademicService/RemoveCiO")]
+        System.Threading.Tasks.Task RemoveCiOAsync(string CiOId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -97,76 +97,76 @@ namespace WebFormsMsMqClient.AcademicService {
                 base(binding, remoteAddress) {
         }
         
-        public void CreateSubject(string Subject) {
-            base.Channel.CreateSubject(Subject);
+        public void CreateCar(string Car) {
+            base.Channel.CreateCar(Car);
         }
         
-        public System.Threading.Tasks.Task CreateSubjectAsync(string Subject) {
-            return base.Channel.CreateSubjectAsync(Subject);
+        public System.Threading.Tasks.Task CreateCarAsync(string Car) {
+            return base.Channel.CreateCarAsync(Car);
         }
         
-        public void UpdateSubject(string updatedSubject) {
-            base.Channel.UpdateSubject(updatedSubject);
+        public void UpdateCar(string updatedCar) {
+            base.Channel.UpdateCar(updatedCar);
         }
         
-        public System.Threading.Tasks.Task UpdateSubjectAsync(string updatedSubject) {
-            return base.Channel.UpdateSubjectAsync(updatedSubject);
+        public System.Threading.Tasks.Task UpdateCarAsync(string updatedCar) {
+            return base.Channel.UpdateCarAsync(updatedCar);
         }
         
-        public void RemoveSubject(string SubjectId) {
-            base.Channel.RemoveSubject(SubjectId);
+        public void RemoveCar(string CarId) {
+            base.Channel.RemoveCar(CarId);
         }
         
-        public System.Threading.Tasks.Task RemoveSubjectAsync(string SubjectId) {
-            return base.Channel.RemoveSubjectAsync(SubjectId);
+        public System.Threading.Tasks.Task RemoveCarAsync(string CarId) {
+            return base.Channel.RemoveCarAsync(CarId);
         }
         
-        public void CreateGroup(string Group) {
-            base.Channel.CreateGroup(Group);
+        public void CreateOrder(string Order) {
+            base.Channel.CreateOrder(Order);
         }
         
-        public System.Threading.Tasks.Task CreateGroupAsync(string Group) {
-            return base.Channel.CreateGroupAsync(Group);
+        public System.Threading.Tasks.Task CreateOrderAsync(string Order) {
+            return base.Channel.CreateOrderAsync(Order);
         }
         
-        public void UpdateGroup(string updatedGroup) {
-            base.Channel.UpdateGroup(updatedGroup);
+        public void UpdateOrder(string updatedOrder) {
+            base.Channel.UpdateOrder(updatedOrder);
         }
         
-        public System.Threading.Tasks.Task UpdateGroupAsync(string updatedGroup) {
-            return base.Channel.UpdateGroupAsync(updatedGroup);
+        public System.Threading.Tasks.Task UpdateOrderAsync(string updatedOrder) {
+            return base.Channel.UpdateOrderAsync(updatedOrder);
         }
         
-        public void RemoveGroup(string GroupId) {
-            base.Channel.RemoveGroup(GroupId);
+        public void RemoveOrder(string OrderId) {
+            base.Channel.RemoveOrder(OrderId);
         }
         
-        public System.Threading.Tasks.Task RemoveGroupAsync(string GroupId) {
-            return base.Channel.RemoveGroupAsync(GroupId);
+        public System.Threading.Tasks.Task RemoveOrderAsync(string OrderId) {
+            return base.Channel.RemoveOrderAsync(OrderId);
         }
         
-        public void CreateSiG(string SiG) {
-            base.Channel.CreateSiG(SiG);
+        public void CreateCiO(string CiO) {
+            base.Channel.CreateCiO(CiO);
         }
         
-        public System.Threading.Tasks.Task CreateSiGAsync(string SiG) {
-            return base.Channel.CreateSiGAsync(SiG);
+        public System.Threading.Tasks.Task CreateCiOAsync(string CiO) {
+            return base.Channel.CreateCiOAsync(CiO);
         }
         
-        public void UpdateSiG(string updatedSiG) {
-            base.Channel.UpdateSiG(updatedSiG);
+        public void UpdateCiO(string updatedCiO) {
+            base.Channel.UpdateCiO(updatedCiO);
         }
         
-        public System.Threading.Tasks.Task UpdateSiGAsync(string updatedSiG) {
-            return base.Channel.UpdateSiGAsync(updatedSiG);
+        public System.Threading.Tasks.Task UpdateCiOAsync(string updatedCiO) {
+            return base.Channel.UpdateCiOAsync(updatedCiO);
         }
         
-        public void RemoveSiG(string SiGId) {
-            base.Channel.RemoveSiG(SiGId);
+        public void RemoveCiO(string CiOId) {
+            base.Channel.RemoveCiO(CiOId);
         }
         
-        public System.Threading.Tasks.Task RemoveSiGAsync(string SiGId) {
-            return base.Channel.RemoveSiGAsync(SiGId);
+        public System.Threading.Tasks.Task RemoveCiOAsync(string CiOId) {
+            return base.Channel.RemoveCiOAsync(CiOId);
         }
     }
 }

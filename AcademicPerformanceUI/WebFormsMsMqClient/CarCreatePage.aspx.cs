@@ -1,17 +1,21 @@
-﻿using System;
+﻿using DataAccess.Interfaces;
+using DataAccess.Models;
+using Newtonsoft.Json;
+using System;
 using System.Linq;
 using System.Threading;
 using System.Transactions;
 using System.Web.UI.WebControls;
-using WcfRestService.DTOModels;
+using WebFormsMsMqClient.AcademicService;
 
-namespace WebFormsClient
+namespace WebFormsMsMqClient
 {
     public partial class CarCreatePage : System.Web.UI.Page
     {
+        private readonly IRepository<Car> Repository = Singleton.UnitOfWork.CarRepository;
+        private readonly IRepository<Manufacturer> RepoManufact = Singleton.UnitOfWork.ManufacturerRepository;
+        private readonly AcademicServiceClient serviceClient = new AcademicServiceClient();
         private Guid _id;
-        private WebClientCrudService<CarDto> client = new WebClientCrudService<CarDto>("CarService.svc");
-        private WebClientCrudService<ManufacturerDto> forManufact = new WebClientCrudService<ManufacturerDto>("ManufacturerService.svc");
         protected void Page_Load(object sender, EventArgs e)
         {
             var id = Request.QueryString["Id"];
@@ -23,16 +27,16 @@ namespace WebFormsClient
             {
                 if (id != null)
                 {
-                    var _loadedCar = client.GetEntities().Where(i => i.Id == Guid.Parse(id)).FirstOrDefault();
-                    var manufactID = _loadedCar.ManufacturerId;
-                    var _loadedManufact = forManufact.GetEntities().Where(i => i.Id == manufactID).FirstOrDefault();
+                    var _loadedSubject = Repository.GetAllEntitiesAsync().Result.Where(i => i.Id == Guid.Parse(id)).FirstOrDefault();
+                    var manufactID = _loadedSubject.ManufacturerId;
+                    var _loadedManufact = RepoManufact.GetAllEntitiesAsync().Result.Where(i => i.Id == manufactID).FirstOrDefault();
 
-                    carBrand.Text = _loadedCar.Brand;
-                    carModel.Text = _loadedCar.Model;
-                    carSerialNumber.Text = _loadedCar.SerialNumber;
-                    carColor.Text = _loadedCar.Color;
-                    carPrice.Text = _loadedCar.Price.ToString();
-                    carManufacturer.Text = _loadedManufact != null ? _loadedManufact.Name : "";
+                    carBrand.Text = _loadedSubject.Brand;
+                    carModel.Text = _loadedSubject.Model;
+                    carSerialNumber.Text = _loadedSubject.SerialNumber;
+                    carColor.Text = _loadedSubject.Color;
+                    carPrice.Text = _loadedSubject.Price.ToString();
+                    carManufacturerId.Text = _loadedManufact != null ? _loadedManufact.Name : "";
 
                     btnCreate.Visible = false;
                     Label.Text = "Update car";
@@ -47,21 +51,21 @@ namespace WebFormsClient
 
         protected void btnCreate_Click(object sender, EventArgs e)
         {
-            CarDto car = new CarDto();
-
+            Car car = new Car();
+            car.Id = Guid.NewGuid();
             car.Brand = carBrand.Text;
             car.Model = carModel.Text;
             car.SerialNumber = carSerialNumber.Text;
             car.Color = carColor.Text;
             car.Price = int.Parse(carPrice.Text);
 
-            var _loadedManufact = forManufact.GetEntities().Where(i => i.Name == carManufacturer.Text).FirstOrDefault();
+            var _loadedManufact = RepoManufact.GetAllEntitiesAsync().Result.Where(i => i.Name == carManufacturerId.Text).FirstOrDefault();
             car.ManufacturerId = _loadedManufact != null ? _loadedManufact.Id : Guid.Empty;
 
             using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required))
             {
-                client.CreateEntity(car);
-
+                var serialized = JsonConvert.SerializeObject(car);
+                serviceClient.CreateCar(serialized);
                 scope.Complete();
             }
 
@@ -72,20 +76,23 @@ namespace WebFormsClient
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
-            var car = client.GetEntities().Where(sub => sub.Id == _id).FirstOrDefault();
+            var car = Repository.GetAllEntitiesAsync().Result.Where(sub => sub.Id == _id).FirstOrDefault();
+
+            car.Id = Guid.NewGuid();
             car.Brand = carBrand.Text;
             car.Model = carModel.Text;
             car.SerialNumber = carSerialNumber.Text;
             car.Color = carColor.Text;
             car.Price = int.Parse(carPrice.Text);
 
-            var _loadedManufact = forManufact.GetEntities().Where(i => i.Name == carManufacturer.Text).FirstOrDefault();
+            var _loadedManufact = RepoManufact.GetAllEntitiesAsync().Result.Where(i => i.Name == carManufacturerId.Text).FirstOrDefault();
             if (_loadedManufact != null)
                 car.ManufacturerId = _loadedManufact.Id;
 
             using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required))
             {
-                client.UpdateEntity(car);
+                var serialized = JsonConvert.SerializeObject(car);
+                serviceClient.UpdateCar(serialized);
                 scope.Complete();
             }
 

@@ -10,7 +10,7 @@
 namespace WebFormsMsMqClient {
     
     
-    public partial class OrderCreatePage {
+    public partial class CarInOrderCreatePage {
         
         /// <summary>
         /// Label элемент управления.
@@ -22,49 +22,22 @@ namespace WebFormsMsMqClient {
         protected global::System.Web.UI.WebControls.Label Label;
         
         /// <summary>
-        /// orderStartDate элемент управления.
+        /// dropdownCar элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox orderStartDate;
+        protected global::System.Web.UI.WebControls.DropDownList dropdownCar;
         
         /// <summary>
-        /// orderEndDate элемент управления.
+        /// dropdownOrder элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox orderEndDate;
-        
-        /// <summary>
-        /// orderSum элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox orderSum;
-        
-        /// <summary>
-        /// orderManagerId элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox orderManagerId;
-        
-        /// <summary>
-        /// orderCustomerId элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox orderCustomerId;
+        protected global::System.Web.UI.WebControls.DropDownList dropdownOrder;
         
         /// <summary>
         /// btnCreate элемент управления.

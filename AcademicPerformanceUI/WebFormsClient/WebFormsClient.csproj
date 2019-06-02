@@ -126,7 +126,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="ManufacturerCreatePage.aspx" />
-    <Content Include="ManufacturersPage.aspx" />
+    <Content Include="ManufacturerPage.aspx" />
     <Content Include="Properties\DataSources\WcfRestService.DTOModels.GroupDto.datasource" />
     <Content Include="Properties\DataSources\WcfRestService.DTOModels.SubjectInGroupDto.datasource" />
     <Content Include="Properties\DataSources\WcfRestService.DTOModels.SubjectDto.datasource" />
@@ -181,12 +181,12 @@
     <Compile Include="ManufacturerCreatePage.aspx.designer.cs">
       <DependentUpon>ManufacturerCreatePage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ManufacturersPage.aspx.cs">
-      <DependentUpon>ManufacturersPage.aspx</DependentUpon>
+    <Compile Include="ManufacturerPage.aspx.cs">
+      <DependentUpon>ManufacturerPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ManufacturersPage.aspx.designer.cs">
-      <DependentUpon>ManufacturersPage.aspx</DependentUpon>
+    <Compile Include="ManufacturerPage.aspx.designer.cs">
+      <DependentUpon>ManufacturerPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
