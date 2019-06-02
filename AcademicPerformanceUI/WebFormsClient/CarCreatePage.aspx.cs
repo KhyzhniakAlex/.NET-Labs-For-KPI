@@ -50,7 +50,9 @@ namespace WebFormsClient
             car.SerialNumber = carSerialNumber.Text;
             car.Color = carColor.Text;
             car.Price = int.Parse(carPrice.Text);
-            //manufacturer
+
+            //ManufacturerDto manufact = Manu
+            //car.ManufacturerId = 
 
             using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required))
             {

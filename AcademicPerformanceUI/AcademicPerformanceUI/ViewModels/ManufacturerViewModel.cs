@@ -9,12 +9,12 @@ namespace AcademicPerformanceUI.ViewModels
     { 
         public ManufacturerViewModel()
         {
-            SelectedEntity = new Manufacturer();
             LoadConnectedData();
         }
         
         public override void LoadConnectedData()
         {
+            SelectedEntity = new Manufacturer();
         }
     }
 }

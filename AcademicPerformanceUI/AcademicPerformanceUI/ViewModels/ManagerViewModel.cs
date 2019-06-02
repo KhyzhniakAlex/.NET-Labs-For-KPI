@@ -9,12 +9,12 @@ namespace AcademicPerformanceUI.ViewModels
     {
         public ManagerViewModel()
         {
+            SelectedEntity = new Manager();
             LoadConnectedData();
         }
 
         public override void LoadConnectedData()
         {
-            SelectedEntity = new Manager();
         }
     }
 }

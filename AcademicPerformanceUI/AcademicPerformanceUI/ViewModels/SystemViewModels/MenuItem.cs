@@ -4,7 +4,7 @@ using System.Windows.Input;
 
 namespace AcademicPerformanceUI.ViewModels
 {
-    public class MenuItem : BaseViewModel<Manager>
+    public class MenuItem : BaseViewModel<Manufacturer>
     {
         private object _icon;
         private string _text;

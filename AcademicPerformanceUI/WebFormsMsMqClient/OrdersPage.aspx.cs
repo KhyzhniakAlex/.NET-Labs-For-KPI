@@ -7,9 +7,9 @@ using WebFormsMsMqClient.AcademicService;
 
 namespace WebFormsMsMqClient
 {
-    public partial class GroupsPage : System.Web.UI.Page
+    public partial class OrdersPage : System.Web.UI.Page
     {
-        private readonly IRepository<Group> Repository = Singleton.UnitOfWork.GroupRepository;
+        private readonly IRepository<Order> Repository = Singleton.UnitOfWork.OrderRepository;
         private readonly AcademicServiceClient serviceClient = new AcademicServiceClient();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -33,16 +33,16 @@ namespace WebFormsMsMqClient
                         scope.Complete();
                     }
 
-                    Response.Redirect("groupspage");
+                    Response.Redirect("orderspage");
                     break;
                 case "Update":
-                    Response.Redirect("groupCreatePage?ID=" + e.CommandArgument);
+                    Response.Redirect("orderCreatePage?ID=" + e.CommandArgument);
                     break;
             }
         }
         protected void OnClick(object sender, EventArgs e)
         {
-            Response.Redirect("groupCreatePage");
+            Response.Redirect("orderCreatePage");
         }
 }
 }

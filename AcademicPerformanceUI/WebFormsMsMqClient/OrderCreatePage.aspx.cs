@@ -10,10 +10,10 @@ using WebFormsMsMqClient.AcademicService;
 
 namespace WebFormsMsMqClient
 {
-    public partial class GroupCreatePage : System.Web.UI.Page
+    public partial class OrderCreatePage : System.Web.UI.Page
     {
         private Guid _id;
-        private readonly IRepository<Group> Repository = Singleton.UnitOfWork.GroupRepository;
+        private readonly IRepository<Order> Repository = Singleton.UnitOfWork.OrderRepository;
         private readonly AcademicServiceClient serviceClient = new AcademicServiceClient();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,30 +28,30 @@ namespace WebFormsMsMqClient
             {
                 if (id != null)
                 {
-                    var _loadedSubject = Repository.GetAllEntitiesAsync().Result.Where(i => i.Id == Guid.Parse(id)).FirstOrDefault();
+                    var _loadedOrder = Repository.GetAllEntitiesAsync().Result.Where(i => i.Id == Guid.Parse(id)).FirstOrDefault();
 
-                    groupName.Text = _loadedSubject.GroupName;
-                    groupMaxStudents.Text = _loadedSubject.MaxStudents.ToString();
-                    groupStudyYear.Text = _loadedSubject.StudyYear.ToString();
+                    orderStartDate.Text = _loadedOrder.StartDate.ToString();
+                    orderEndDate.Text = _loadedOrder.EndDate.ToString();
+                    orderSum.Text = _loadedOrder.Sum.ToString();
 
                     btnCreate.Visible = false;
-                    Label.Text = "Update group";
+                    Label.Text = "Update order";
                 }
                 else
                 {
                     btnUpdate.Visible = false;
-                    Label.Text = "Create new group";
+                    Label.Text = "Create new order";
                 }
             }
         }
 
         protected void btnCreate_Click(object sender, EventArgs e)
         {
-            Group subject = new Group();
+            Order subject = new Order();
             subject.Id = Guid.NewGuid();
-            subject.GroupName = groupName.Text;
-            subject.MaxStudents = int.Parse(groupMaxStudents.Text);
-            subject.StudyYear = int.Parse(groupStudyYear.Text);
+            subject.StartDate = DateTime.Parse(orderStartDate.Text);
+            subject.EndDate = DateTime.Parse(orderEndDate.Text);
+            subject.Sum = int.Parse(orderSum.Text);
 
             using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required))
             {
@@ -61,7 +61,7 @@ namespace WebFormsMsMqClient
             }
             Thread.Sleep(3000);
 
-            Response.Redirect("groupsPage");
+            Response.Redirect("ordersPage");
         }
 
         protected void btnUpdate_Click(object sender, EventArgs e)

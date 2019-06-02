@@ -4,7 +4,7 @@ namespace WebFormsMsMqClient
 {
     public static class Singleton
     {
-        private static string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\olexi\TestDb.mdf;Integrated Security=True;Connect Timeout=30";
+        private static string connectionString = @"Data Source = Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=C:\Users\SASHA\CarSalonDB.mdf;Integrated Security=True;Connect Timeout=30";
         public static SqlDbConnectionUnitOfWork UnitOfWork = new SqlDbConnectionUnitOfWork(connectionString);
     }
 }
