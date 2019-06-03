@@ -18,7 +18,7 @@ namespace DataAccess.SqlDbConnection.Repository
         {
             this.ConnectionString = connectionString;
             this.SqlHelper = new SqlDbConnectionHelper();
-            ///CreateTables();
+            //CreateTables();
         }
 
         public virtual Task<TEntity> CreateAsync(TEntity entity)
@@ -66,7 +66,7 @@ namespace DataAccess.SqlDbConnection.Repository
             return (TEntity)newObject;
         }
 
-        private void CreateTables()
+        public void CreateTables()
         {
             ExecuteNonQuery(SqlHelper.CreateTableSqlText<Order>());
             ExecuteNonQuery(SqlHelper.CreateTableSqlText<Customer>());

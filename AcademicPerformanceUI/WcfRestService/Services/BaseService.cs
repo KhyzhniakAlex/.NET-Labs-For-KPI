@@ -9,7 +9,7 @@ namespace WcfRestService
 {
     public class BaseService<DtoType, ModelType> where DtoType: IBaseDto where ModelType: IEntity
     {
-        private static string connectionString = @"Data Source = Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=C:\Users\SASHA\CarSalonDB.mdf;Integrated Security=True;Connect Timeout=30";
+        private static string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=C:\Users\SASHA\CarLabsDB.mdf;Integrated Security=True;Connect Timeout=30";
         public static Lazy<SqlDbConnectionUnitOfWork> UnitOfWork = new Lazy<SqlDbConnectionUnitOfWork>(() => new SqlDbConnectionUnitOfWork(connectionString));
         private Mapper mapper { get; set; } =  new Mapper();
 

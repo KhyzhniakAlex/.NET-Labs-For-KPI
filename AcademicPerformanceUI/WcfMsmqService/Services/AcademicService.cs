@@ -10,7 +10,7 @@ namespace WcfMsmqService.Services
 {
     public class AcademicService:IAcademicService
     {
-        private static string connectionString = @"Data Source = Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=C:\Users\SASHA\CarSalonDB.mdf;Integrated Security=True;Connect Timeout=30";
+        private static string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=C:\Users\SASHA\CarLabsDB.mdf;Integrated Security=True;Connect Timeout=30";
         public static Lazy<SqlDbConnectionUnitOfWork> UnitOfWork = new Lazy<SqlDbConnectionUnitOfWork>(() => new SqlDbConnectionUnitOfWork(connectionString));
 
         #region drivers
