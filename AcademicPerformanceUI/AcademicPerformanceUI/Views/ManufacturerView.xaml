@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:viewModels="clr-namespace:AcademicPerformanceUI.ViewModels"
       mc:Ignorable="d" 
-      d:DesignHeight="500" d:DesignWidth="800"
+      d:DesignHeight="490" d:DesignWidth="800"
       Title="ManufacturerView">
     <Page.DataContext>
         <viewModels:ManufacturerViewModel>
@@ -29,9 +29,10 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <StackPanel Orientation="Vertical" Margin="404,0,0,10">
+            <Label Margin="10,10,10,0" FontSize="20" Content="Manufacturers:"></Label>
             <Label Margin="10,10,10,0" Content="Input name:"></Label>
             <TextBox Margin="10,0,10,0" Height="23" Text="{Binding SelectedEntity.Name}"/>
-            <Label Margin="10,10,10,0" Content="Input number:"></Label>
+            <Label Margin="10,10,10,0" Content="Input office phone number:"></Label>
             <TextBox Margin="10,0,10,0" Height="23" Text="{Binding SelectedEntity.OfficePhoneNumber}"/>
             <Label Margin="10,10,10,0" Content="Input country:"></Label>
             <TextBox Margin="10,0,10,0" Height="23" Text="{Binding SelectedEntity.Country}"/>
@@ -41,7 +42,6 @@
             <Button Margin="80,20,80,0" Content="Update" Click="Update_Manufacturer_OnClick"/>
             <Button Margin="80,20,80,0" Content="Save one" Click="Save_Manufacturer_OnClick"/>
             <Button Margin="80,20,80,0" Content="Save all" Click="SaveAll__Manufacturer_OnClick"/>
-            <Button Margin="80,20,80,0" Content="UploadList" Click="Upload_EntityList_OnClick"/>
 
         </StackPanel>
     </Grid>
