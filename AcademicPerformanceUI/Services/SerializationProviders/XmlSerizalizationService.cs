@@ -26,7 +26,7 @@ namespace Services.Serialization
             }
         }
 
-        public virtual Entity DeserizalizeEntity<Entity>(string path)
+        public virtual Entity DeserizalizeEntity<List<Entity>>(string path)
         {
             XmlSerializer = new XmlSerializer(typeof(Entity));
             Entity entity;

@@ -13,5 +13,9 @@ namespace WcfRestService.Services
         {
 
         }
+        public ManagerService()
+        {
+
+        }
     }
 }

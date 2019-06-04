@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ManufacturerPage.aspx.cs" Inherits="WebFormsClient.ManufacturersPage" MasterPageFile="~/Site.Master"%>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ManufacturerPage.aspx.cs" Inherits="WebFormsClient.ManufacturerPage" MasterPageFile="~/Site.Master"%>
 <%@ Import Namespace="WcfRestService.DTOModels" %>
 
 <asp:Content ID="ManufacturersPage" ContentPlaceHolderID="MainContent" runat="server">

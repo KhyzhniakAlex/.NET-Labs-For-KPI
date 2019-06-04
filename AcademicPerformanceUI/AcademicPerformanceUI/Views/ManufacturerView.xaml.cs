@@ -44,7 +44,6 @@ namespace AcademicPerformanceUI.Views
             ManufacturerViewModel.SaveAllEntities();
         }
 
-
         public void Upload_EntityList_OnClick(object sender, RoutedEventArgs e)
         {
             var fileDialog = new OpenFileDialog();

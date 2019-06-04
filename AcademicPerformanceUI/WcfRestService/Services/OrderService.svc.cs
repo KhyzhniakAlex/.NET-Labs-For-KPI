@@ -9,5 +9,9 @@ namespace WcfRestService
     [ServiceBehavior(IncludeExceptionDetailInFaults = true)]
     public class OrderService : BaseService<OrderDto, Order>, IOrderService 
     {
+        public OrderService()
+        {
+
+        }
     }
 }

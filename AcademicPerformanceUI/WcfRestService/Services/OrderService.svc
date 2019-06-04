@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="WcfRestService.GroupService" CodeBehind="OrderService.svc.cs" %>
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="WcfRestService.OrderService" CodeBehind="OrderService.svc.cs" %>

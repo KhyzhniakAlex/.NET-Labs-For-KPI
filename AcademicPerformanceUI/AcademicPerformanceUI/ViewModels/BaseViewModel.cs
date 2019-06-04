@@ -103,6 +103,7 @@ namespace AcademicPerformanceUI.ViewModels
             {
             }
         }
+
         public abstract void LoadConnectedData();
 
         public virtual void SaveEntity()
@@ -153,3 +154,27 @@ namespace AcademicPerformanceUI.ViewModels
         }
     }
 }
+
+
+//try
+//    {
+//        //var newEntity = (Entity)_SelectedEntity.Clone();
+//        //newEntity.Id = Guid.NewGuid();
+
+//        //var res = await Repository.CreateAsync(newEntity);
+//        //if (res == null) return;
+
+//        //Entities.Add(newEntity);
+//        //var x = (IEntity)newEntity;
+//        //SelectedEntity = Repository.CreateEmptyObject();
+//        var newEntity = (Entity)_SelectedEntity.Clone();
+//var res = await Repository.GetAllEntitiesAsync();
+
+//res.ForEach(el => Entities.Add(el));
+//        var x = (IEntity)newEntity;
+//SelectedEntity = Repository.CreateEmptyObject();
+//    }
+//    catch(Exception ex)
+//    {
+
+//    }

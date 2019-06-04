@@ -9,5 +9,9 @@ namespace WcfRestService.Services
 
     public class CustomerService : BaseService<CustomerDto, Customer>, ICustomerService
     {
+        public CustomerService()
+        {
+
+        }
     }
 }
