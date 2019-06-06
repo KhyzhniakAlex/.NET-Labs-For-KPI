@@ -6,7 +6,7 @@
       xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
       xmlns:viewModels="clr-namespace:AcademicPerformanceUI.ViewModels"
       mc:Ignorable="d" 
-      d:DesignHeight="560" d:DesignWidth="800"
+      d:DesignHeight="600" d:DesignWidth="800"
       Title="ManagerView">
     <Page.DataContext>
         <viewModels:ManagerViewModel>
@@ -50,7 +50,7 @@
             <Button Margin="80,20,80,0" Content="Update" Click="Update_Manager_OnClick"/>
             <Button Margin="80,20,80,0" Content="Save one" Click="Save_Manager_OnClick"/>
             <Button Margin="80,20,80,0" Content="Save all" Click="SaveAll__Manager_OnClick"/>
-
+            <Button Margin="80,20,80,0" Content="Upload" Click="Upload_EntityList_OnClick"/>
         </StackPanel>
     </Grid>
 </Page>

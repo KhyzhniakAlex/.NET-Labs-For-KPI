@@ -1,26 +1,28 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Services.Serialization
 {
     public class JsonSerializationService: ISerialization
     {
-        public Entity DeserizalizeEntity<Entity>(string path)
+        public List<Entity> DeserizalizeEntity<Entity>(string path)
         {
             JsonSerializer serializer = new JsonSerializer();
-            Entity entity;
+            List<Entity> entity = new List<Entity>();
             try
             {
                 using (StreamReader file = File.OpenText(path))
                 {
-                    entity = (Entity)serializer.Deserialize(file, typeof(Entity));
+                    entity.Add((Entity)serializer.Deserialize(file, typeof(Entity)));
                 }
                 return entity;
             }
             catch (Exception)
             {
-                return default(Entity);
+                return default;
             }
         }
 

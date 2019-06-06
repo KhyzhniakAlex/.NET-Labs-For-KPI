@@ -6,7 +6,7 @@
       xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
       xmlns:viewModels="clr-namespace:AcademicPerformanceUI.ViewModels"
       mc:Ignorable="d" 
-      d:DesignHeight="590" d:DesignWidth="800"
+      d:DesignHeight="630" d:DesignWidth="800"
       Title="OrderView">
     <Page.DataContext>
         <viewModels:OrderViewModel>
@@ -51,7 +51,7 @@
             <Button Margin="80,20,80,0" Content="Update" Click="Update_Order_OnClick"/>
             <Button Margin="80,20,80,0" Content="Save one" Click="Save_Order_OnClick"/>
             <Button Margin="80,20,80,0" Content="Save all" Click="SaveAll__Order_OnClick"/>
-
+            <Button Margin="80,20,80,0" Content="Upload" Click="Upload_EntityList_OnClick"/>
         </StackPanel>
     </Grid>
 </Page>

@@ -7,7 +7,7 @@
         xmlns:ViewModels="clr-namespace:AcademicPerformanceUI.ViewModels"
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Title="MainWindow" Height="640" Width="900">
+        Title="MainWindow" Height="680" Width="900">
 
     <Controls:MetroWindow.DataContext>
         <ViewModels:MenuViewModel/>

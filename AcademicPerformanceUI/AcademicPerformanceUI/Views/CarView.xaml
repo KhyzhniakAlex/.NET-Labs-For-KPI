@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:DataAccess.Models;assembly=DataAccess"
       xmlns:sys="clr-namespace:System;assembly=mscorlib"
       mc:Ignorable="d" 
-      d:DesignHeight="610" d:DesignWidth="800"
+      d:DesignHeight="650" d:DesignWidth="800"
       Title="CarView">
     <Page.DataContext>
         <viewModels:CarViewModel>
@@ -53,7 +53,7 @@
             <Button Margin="80,20,80,0" Content="Update" Click="Update_Car_OnClick"/>
             <Button Margin="80,20,80,0" Content="Save one" Click="Save_Car_OnClick"/>
             <Button Margin="80,20,80,0" Content="Save all" Click="SaveAll__Car_OnClick"/>
-
+            <Button Margin="80,20,80,0" Content="Upload" Click="Upload_EntityList_OnClick"/>
         </StackPanel>
     </Grid>
 </Page>

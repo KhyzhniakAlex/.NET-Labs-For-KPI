@@ -12,9 +12,12 @@ namespace AcademicPerformanceUI.ViewModels
     public abstract class BaseViewModel<Entity>:INotifyPropertyChanged where Entity: IEntity
     {
         public BaseViewModel()
-        {
-            Entities = new ObservableCollection<Entity>(Repository.GetAllEntitiesAsync().Result);
-        }
+            => RefreshEntities();
+
+        private void RefreshEntities()
+            => Entities = new ObservableCollection<Entity>(Repository.GetAllEntitiesAsync().Result);
+
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
@@ -27,9 +30,7 @@ namespace AcademicPerformanceUI.ViewModels
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+            => this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
 
         public ObservableCollection<Entity> _Entities;
@@ -47,7 +48,12 @@ namespace AcademicPerformanceUI.ViewModels
 
         public virtual Entity SelectedEntity
         {
-            get => _SelectedEntity;
+            get
+            {
+                if (_SelectedEntity?.Id == Guid.Empty)
+                    _SelectedEntity.Id = Guid.NewGuid();
+                return _SelectedEntity;
+            } 
             set => SetProperty(ref _SelectedEntity, value);
         }
 
@@ -111,6 +117,7 @@ namespace AcademicPerformanceUI.ViewModels
             try
             {
                 var service = SerializationServiceFactory.GetSerializationService();
+                SelectedEntity.Id = Guid.NewGuid();
                 service.SerializeEntity(SelectedEntity, $"{typeof(Entity)}");
             }
             catch (Exception)
@@ -142,9 +149,9 @@ namespace AcademicPerformanceUI.ViewModels
             try
             {
                 var service = SerializationServiceFactory.GetSerializationService();
-                List<Entity> entities = new List<Entity>();
-                entities = service.DeserizalizeEntity<List<Entity>>(path);
+                List<Entity> entities = service.DeserizalizeEntity<Entity>(path);
                 Repository.AddCollection(entities);
+                RefreshEntities();
                 LoadConnectedData();
             }
             catch (Exception)
@@ -154,27 +161,3 @@ namespace AcademicPerformanceUI.ViewModels
         }
     }
 }
-
-
-//try
-//    {
-//        //var newEntity = (Entity)_SelectedEntity.Clone();
-//        //newEntity.Id = Guid.NewGuid();
-
-//        //var res = await Repository.CreateAsync(newEntity);
-//        //if (res == null) return;
-
-//        //Entities.Add(newEntity);
-//        //var x = (IEntity)newEntity;
-//        //SelectedEntity = Repository.CreateEmptyObject();
-//        var newEntity = (Entity)_SelectedEntity.Clone();
-//var res = await Repository.GetAllEntitiesAsync();
-
-//res.ForEach(el => Entities.Add(el));
-//        var x = (IEntity)newEntity;
-//SelectedEntity = Repository.CreateEmptyObject();
-//    }
-//    catch(Exception ex)
-//    {
-
-//    }

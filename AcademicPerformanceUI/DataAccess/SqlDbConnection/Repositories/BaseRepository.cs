@@ -47,7 +47,10 @@ namespace DataAccess.SqlDbConnection.Repository
             return Task.FromResult(result != 0);
         }
 
-        public virtual void AddCollection(List<TEntity> entities) { throw new NotImplementedException();  }
+        public virtual void AddCollection(List<TEntity> entities)
+        {
+            entities.ForEach(item => CreateAsync(item));
+        }
 
         public TEntity CreateEmptyObject()
         {
