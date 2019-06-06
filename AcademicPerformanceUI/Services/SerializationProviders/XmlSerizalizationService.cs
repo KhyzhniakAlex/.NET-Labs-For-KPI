@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
 
@@ -26,21 +27,21 @@ namespace Services.Serialization
             }
         }
 
-        public virtual Entity DeserizalizeEntity<Entity>(string path)
+        public virtual List<Entity> DeserizalizeEntity<Entity>(string path)
         {
             XmlSerializer = new XmlSerializer(typeof(Entity));
-            Entity entity;
+            List<Entity> entity = new List<Entity>();
             try
             {
                 using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
                 {
-                    entity = (Entity)XmlSerializer.Deserialize(fs);
+                    entity.Add((Entity)XmlSerializer.Deserialize(fs));
                 }
                 return entity;
             }
             catch(Exception)
             {
-                return default(Entity);
+                return default;
             }
         }
     }

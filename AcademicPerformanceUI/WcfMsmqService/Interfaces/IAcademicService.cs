@@ -7,35 +7,35 @@ namespace WcfMsmqService.Interfaces
     {
         #region drivers
         [OperationContract(IsOneWay = true)]
-        void CreateSubject(string Subject);
+        void CreateCar(string Car);
 
         [OperationContract(IsOneWay = true)]
-        void UpdateSubject(string updatedSubject);
+        void UpdateCar(string updatedCar);
 
         [OperationContract(IsOneWay = true)]
-        void RemoveSubject(string SubjectId);
+        void RemoveCar(string CarId);
         #endregion
 
         #region shifts
         [OperationContract(IsOneWay = true)]
-        void CreateGroup(string Group);
+        void CreateOrder(string Order);
 
         [OperationContract(IsOneWay = true)]
-        void UpdateGroup(string updatedGroup);
+        void UpdateOrder(string updatedOrder);
 
         [OperationContract(IsOneWay = true)]
-        void RemoveGroup(string GroupId);
+        void RemoveOrder(string OrderId);
         #endregion
 
         #region routes
         [OperationContract(IsOneWay = true)]
-        void CreateSiG(string SiG);
+        void CreateCiO(string CiO);
 
         [OperationContract(IsOneWay = true)]
-        void UpdateSiG(string updatedSiG);
+        void UpdateCiO(string updatedCiO);
 
         [OperationContract(IsOneWay = true)]
-        void RemoveSiG(string SiGId);
+        void RemoveCiO(string CiOId);
         #endregion
     }
 }

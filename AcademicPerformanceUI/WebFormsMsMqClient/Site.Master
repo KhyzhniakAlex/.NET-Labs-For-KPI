@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Academic performance</title>
+    <title>Car salon</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -50,9 +50,9 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="subjectsPage">Subject</a></li>
-                        <li><a runat="server" href="subjectInGroupsPage">SubjectInGroups</a></li>
-                        <li><a runat="server" href="groupsPage">Groups</a></li>
+                        <li><a runat="server" href="carPage">Car</a></li>
+                        <li><a runat="server" href="carInOrdersPage">CarInOrders</a></li>
+                        <li><a runat="server" href="orderPage">Order</a></li>
                     </ul>
                 </div>
             </div>
@@ -62,7 +62,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Academic performance</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Car salon</p>
             </footer>
         </div>
 

@@ -13,38 +13,36 @@ namespace DataAccess.LinqToSql
             ConnectionString = connectionString;
         }
 
-        private IRepository<Group> groupRepository;
-        public IRepository<Group> GroupRepository => groupRepository ?? (groupRepository = new GroupRepository(ConnectionString));
 
-        private IRepository<Student> studentRepository;
-        public IRepository<Student> StudentRepository => studentRepository ?? (studentRepository = new StudentRepository(ConnectionString));
+        private IRepository<Customer> customerRepository;
+        public IRepository<Customer> CustomerRepository => customerRepository ?? (customerRepository = new CustomerRepository(ConnectionString));
 
-        private IRepository<Subject> subjectRepostitory;
-        public IRepository<Subject> SubjectRepostitory => subjectRepostitory ?? (subjectRepostitory = new SubjectRepository(ConnectionString));
+        private IRepository<Order> orderRepository;
+        public IRepository<Order> OrderRepository => orderRepository ?? (orderRepository = new OrderRepository(ConnectionString));
 
-        private IRepository<SubjectInGroup> subjectInGroupRepository;
-        public IRepository<SubjectInGroup> SubjectInGroupRepository => subjectInGroupRepository ?? (subjectInGroupRepository = new SubjectInGroupRepository(ConnectionString));
+        private IRepository<Car> carRepository;
+        public IRepository<Car> CarRepository => carRepository ?? (carRepository = new CarRepository(ConnectionString));
 
-        private IRepository<Teacher> teacherRepository;
-        public IRepository<Teacher> TeacherRepository => teacherRepository ?? (teacherRepository = new TeacherRepository(ConnectionString));
+        private IRepository<CarInOrder> carInOrderRepository;
+        public IRepository<CarInOrder> CarInOrderRepository => carInOrderRepository ?? (carInOrderRepository = new CarInOrderRepository(ConnectionString));
 
-        private IRepository<Test> testRepository;
-        public IRepository<Test> TestRepository => testRepository ?? (testRepository = new TestRepository(ConnectionString));
+        private IRepository<Manager> managerRepository;
+        public IRepository<Manager> ManagerRepository => managerRepository ?? (managerRepository = new ManagerRepository(ConnectionString));
 
-        private IRepository<TestResult> testResultRepository;
-        public IRepository<TestResult> TestResultRepository => testResultRepository ?? (testResultRepository = new TestResultRepository(ConnectionString));
+        private IRepository<Manufacturer> manufacturerRepository;
+        public IRepository<Manufacturer> ManufacturerRepository => manufacturerRepository ?? (manufacturerRepository = new ManufacturerRepository(ConnectionString));
+
 
         public IRepository<Entity> GetRepositoryByEntityType<Entity>() where Entity : IEntity
         {
             var entityType = typeof(Entity);
 
-            if (entityType == typeof(Group)) return (IRepository<Entity>)GroupRepository;
-            if (entityType == typeof(Student)) return (IRepository<Entity>)StudentRepository;
-            if (entityType == typeof(Subject)) return (IRepository<Entity>)SubjectRepostitory;
-            if (entityType == typeof(SubjectInGroup)) return (IRepository<Entity>)SubjectInGroupRepository;
-            if (entityType == typeof(Teacher)) return (IRepository<Entity>)TeacherRepository;
-            if (entityType == typeof(Test)) return (IRepository<Entity>)TestRepository;
-            if (entityType == typeof(TestResult)) return (IRepository<Entity>)TestResultRepository;
+            if (entityType == typeof(Customer)) return (IRepository<Entity>)CustomerRepository;
+            if (entityType == typeof(Order)) return (IRepository<Entity>)OrderRepository;
+            if (entityType == typeof(Car)) return (IRepository<Entity>)CarRepository;
+            if (entityType == typeof(CarInOrder)) return (IRepository<Entity>)CarInOrderRepository;
+            if (entityType == typeof(Manager)) return (IRepository<Entity>)ManagerRepository;
+            if (entityType == typeof(Manufacturer)) return (IRepository<Entity>)ManufacturerRepository;
 
             throw new NotSupportedException();
         }

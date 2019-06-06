@@ -16,6 +16,7 @@ namespace WebFormsClient
         {
             serviceName = ServiceName;
         }
+
         public List<TEntity> GetEntities()
         {
             string url = $"{FormsSettings.HostUrl}/{serviceName}/Entities";
@@ -50,7 +51,7 @@ namespace WebFormsClient
             req.Method = "POST";
 
             var data = JsonConvert.SerializeObject(subjectDto);
-            byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(data);
+            byte[] byteArray = Encoding.UTF8.GetBytes(data);
 
             req.ContentType = "application/json";
             req.ContentLength = byteArray.Length;
@@ -63,8 +64,7 @@ namespace WebFormsClient
             HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
 
             var text = "";
-            using (StreamReader stream = new StreamReader(
-                 resp.GetResponseStream(), Encoding.UTF8))
+            using (StreamReader stream = new StreamReader(resp.GetResponseStream(), Encoding.UTF8))
             {
                 text = stream.ReadToEnd();
             }

@@ -7,9 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebFormsClient {
-    
-    
+namespace WebFormsClient
+{
     public partial class ViewSwitcher {
     }
 }

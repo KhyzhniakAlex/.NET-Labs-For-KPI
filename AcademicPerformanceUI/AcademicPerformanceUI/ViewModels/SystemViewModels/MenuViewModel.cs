@@ -5,7 +5,6 @@ using MahApps.Metro.IconPacks;
 
 namespace AcademicPerformanceUI.ViewModels
 { 
-
     public class MenuViewModel
     {
         private static readonly ObservableCollection<MenuItem> AppMenu = new ObservableCollection<MenuItem>();
@@ -13,13 +12,12 @@ namespace AcademicPerformanceUI.ViewModels
 
         public MenuViewModel()
         {
-            this.Menu.Add(new MenuItem() { Icon = new PackIconFontAwesome() { Kind = PackIconFontAwesomeKind.UserFriendsSolid }, Text = "Groups", NavigationDestination = new Uri("Views/GroupView.xaml", UriKind.RelativeOrAbsolute) });
-            this.Menu.Add(new MenuItem() { Icon = new PackIconFontAwesome() { Kind = PackIconFontAwesomeKind.UserSolid }, Text = "Students", NavigationDestination = new Uri("Views/StudentView.xaml", UriKind.RelativeOrAbsolute) });
-            this.Menu.Add(new MenuItem() { Icon = new PackIconFontAwesome() { Kind = PackIconFontAwesomeKind.CoffeeSolid }, Text = "Subjects", NavigationDestination = new Uri("Views/SubjectView.xaml", UriKind.RelativeOrAbsolute) });
-            this.Menu.Add(new MenuItem() { Icon = new PackIconFontAwesome() { Kind = PackIconFontAwesomeKind.UserSlashSolid }, Text = "Teachers", NavigationDestination = new Uri("Views/TeacherView.xaml", UriKind.RelativeOrAbsolute) });
-            this.Menu.Add(new MenuItem() { Icon = new PackIconFontAwesome() { Kind = PackIconFontAwesomeKind.MarkerSolid }, Text = "Tests", NavigationDestination = new Uri("Views/TestView.xaml", UriKind.RelativeOrAbsolute) });
-            this.Menu.Add(new MenuItem() { Icon = new PackIconFontAwesome() { Kind = PackIconFontAwesomeKind.MoonSolid }, Text = "Results", NavigationDestination = new Uri("Views/TestResultView.xaml", UriKind.RelativeOrAbsolute) });
-            this.Menu.Add(new MenuItem() { Icon = new PackIconFontAwesome() { Kind = PackIconFontAwesomeKind.AngrySolid }, Text = "SubjectInGroup", NavigationDestination = new Uri("Views/SubjectInGroup.xaml", UriKind.RelativeOrAbsolute) });
+            this.Menu.Add(new MenuItem() { Icon = new PackIconFontAwesome() { Kind = PackIconFontAwesomeKind.UserFriendsSolid }, Text = "Orders", NavigationDestination = new Uri("Views/OrderView.xaml", UriKind.RelativeOrAbsolute) });
+            this.Menu.Add(new MenuItem() { Icon = new PackIconFontAwesome() { Kind = PackIconFontAwesomeKind.UserSolid }, Text = "Customers", NavigationDestination = new Uri("Views/CustomerView.xaml", UriKind.RelativeOrAbsolute) });
+            this.Menu.Add(new MenuItem() { Icon = new PackIconFontAwesome() { Kind = PackIconFontAwesomeKind.CoffeeSolid }, Text = "Cars", NavigationDestination = new Uri("Views/CarView.xaml", UriKind.RelativeOrAbsolute) });
+            this.Menu.Add(new MenuItem() { Icon = new PackIconFontAwesome() { Kind = PackIconFontAwesomeKind.UserSlashSolid }, Text = "Managers", NavigationDestination = new Uri("Views/ManagerView.xaml", UriKind.RelativeOrAbsolute) });
+            this.Menu.Add(new MenuItem() { Icon = new PackIconFontAwesome() { Kind = PackIconFontAwesomeKind.MarkerSolid }, Text = "Manufacturers", NavigationDestination = new Uri("Views/ManufacturerView.xaml", UriKind.RelativeOrAbsolute) });
+            this.Menu.Add(new MenuItem() { Icon = new PackIconFontAwesome() { Kind = PackIconFontAwesomeKind.AngrySolid }, Text = "CarInOrder", NavigationDestination = new Uri("Views/CarInOrderView.xaml", UriKind.RelativeOrAbsolute) });
 
             this.OptionsMenu.Add(new MenuItem() { Icon = new PackIconFontAwesome() { Kind = PackIconFontAwesomeKind.CogsSolid }, Text = "Settings", NavigationDestination = new Uri("Views/SettingsView.xaml", UriKind.RelativeOrAbsolute) });
         }

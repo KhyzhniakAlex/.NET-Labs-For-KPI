@@ -18,7 +18,7 @@ namespace DataAccess.SqlDbConnection.Repository
         {
             this.ConnectionString = connectionString;
             this.SqlHelper = new SqlDbConnectionHelper();
-            ///CreateTables();
+            //CreateTables();
         }
 
         public virtual Task<TEntity> CreateAsync(TEntity entity)
@@ -47,7 +47,10 @@ namespace DataAccess.SqlDbConnection.Repository
             return Task.FromResult(result != 0);
         }
 
-        public virtual void AddCollection(List<TEntity> entities) { throw new NotImplementedException();  }
+        public virtual void AddCollection(List<TEntity> entities)
+        {
+            entities.ForEach(item => CreateAsync(item));
+        }
 
         public TEntity CreateEmptyObject()
         {
@@ -55,27 +58,25 @@ namespace DataAccess.SqlDbConnection.Repository
             IEntity newObject = null;
             switch (type)
             {
-                case "Group": newObject = new Group(); break;
-                case "Student": newObject = new Student(); break;
-                case "Subject": newObject = new Subject(); break;
-                case "Teacher": newObject = new Teacher(); break;
-                case "Test": newObject = new Test(); break;
-                case "SubjectInGroup": newObject = new SubjectInGroup(); break;
-                case "TestResult": newObject = new TestResult(); break;
+                case "Order": newObject = new Order(); break;
+                case "Customer": newObject = new Customer(); break;
+                case "Car": newObject = new Car(); break;
+                case "Manager": newObject = new Manager(); break;
+                case "Manufacturer": newObject = new Manufacturer(); break;
+                case "CustomerInOrder": newObject = new CarInOrder(); break;
                 default: throw new Exception("No such type");
             }
             return (TEntity)newObject;
         }
 
-        private void CreateTables()
+        public void CreateTables()
         {
-            ExecuteNonQuery(SqlHelper.CreateTableSqlText<Subject>());
-            ExecuteNonQuery(SqlHelper.CreateTableSqlText<Test>());
-            ExecuteNonQuery(SqlHelper.CreateTableSqlText<Group>());
-            ExecuteNonQuery(SqlHelper.CreateTableSqlText<Student>());
-            ExecuteNonQuery(SqlHelper.CreateTableSqlText<SubjectInGroup>());
-            ExecuteNonQuery(SqlHelper.CreateTableSqlText<Teacher>());
-            ExecuteNonQuery(SqlHelper.CreateTableSqlText<TestResult>());
+            ExecuteNonQuery(SqlHelper.CreateTableSqlText<Order>());
+            ExecuteNonQuery(SqlHelper.CreateTableSqlText<Customer>());
+            ExecuteNonQuery(SqlHelper.CreateTableSqlText<Car>());
+            ExecuteNonQuery(SqlHelper.CreateTableSqlText<Manager>());
+            ExecuteNonQuery(SqlHelper.CreateTableSqlText<CarInOrder>());
+            ExecuteNonQuery(SqlHelper.CreateTableSqlText<Manufacturer>());
         }
 
         protected virtual int ExecuteNonQuery(string commandText, CommandType commandType = CommandType.Text, params SqlParameter[] parameters)

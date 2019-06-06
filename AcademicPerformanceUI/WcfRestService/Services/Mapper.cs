@@ -15,75 +15,78 @@ namespace WcfRestService.Services
             var dtoTypeName = entity.GetType().Name;
             switch (dtoTypeName)
             {
-                case "GroupDto":
+                case "OrderDto":
                     {
-                        var groupDto = (GroupDto)entity;
-                        var id = groupDto.Id;
-                        var a = groupDto.GroupName;
-                        var x = groupDto.MaxStudents;
-                        var s = groupDto.StudyYear;
-                        return new Group() { Id = groupDto.Id, GroupName = groupDto.GroupName, MaxStudents = groupDto.MaxStudents, StudyYear = groupDto.StudyYear };
-                    }
-                case "StudentDto":
-                    {
-                        var dtoEntity = (StudentDto)(IBaseDto)entity;
-                        return new Student() { Id = dtoEntity.Id, FirstName = dtoEntity.FirstName, LastName = dtoEntity.LastName, PhoneNumber = dtoEntity.PhoneNumber, GroupId = dtoEntity.GroupId };
-                    }
-                case "SubjectDto":
-                    {
-                        var dtoEntity = (SubjectDto)(IBaseDto)entity;
-                        var enumInt = (int)dtoEntity.FinalTestType;
-                        return new Subject()
+                        var dtoEntity = (OrderDto)entity;
+                        return new Order()
                         {
                             Id = dtoEntity.Id,
-                            FinalTestType = (Model.FinalTestType)enumInt,
-                            Hours = dtoEntity.Hours,
-                            Name = dtoEntity.Name
+                            StartDate = dtoEntity.StartDate,
+                            EndDate = dtoEntity.EndDate,
+                            Sum = dtoEntity.Sum,
+                            CustomerId = dtoEntity.CustomerId,
+                            ManagerId = dtoEntity.ManagerId
                         };
                     }
-                case "SubjectInGroupDto":
+                case "CustomerDto":
                     {
-                        var dtoEntity = (SubjectInGroupDto)(IBaseDto)entity;
-                        return new SubjectInGroup()
-                        {
-                            Id = dtoEntity.Id,
-                            GroupId = dtoEntity.GroupId,
-                            SubjectId = dtoEntity.SubjectId
-                        };
-                    }
-                case "TeacherDto":
-                    {
-                        var dtoEntity = (TeacherDto)(IBaseDto)entity;
-                        return new Teacher()
+                        var dtoEntity = (CustomerDto)(IBaseDto)entity;
+                        return new Customer()
                         {
                             Id = dtoEntity.Id,
                             FirstName = dtoEntity.FirstName,
                             LastName = dtoEntity.LastName,
                             PhoneNumber = dtoEntity.PhoneNumber,
-                            SubjectId = dtoEntity.SubjectId
+                            PassportSeries = dtoEntity.PassportSeries,
+                            AccoutId = dtoEntity.AccoutId
                         };
                     }
-                case "TestDto":
+                case "CarDto":
                     {
-                        var dtoEntity = (TestDto)(IBaseDto)entity;
-                        return new Test()
+                        var dtoEntity = (CarDto)(IBaseDto)entity;
+                        return new Car()
                         {
                             Id = dtoEntity.Id,
-                            Date = dtoEntity.Date,
+                            Brand = dtoEntity.Brand,
+                            Model = dtoEntity.Model,
+                            SerialNumber = dtoEntity.SerialNumber,
+                            Color = dtoEntity.Color,
+                            Price = dtoEntity.Price,
+                            ManufacturerId = dtoEntity.ManufacturerId
+                        };
+                    }
+                case "CarInOrderDto":
+                    {
+                        var dtoEntity = (CarInOrderDto)(IBaseDto)entity;
+                        return new CarInOrder()
+                        {
+                            Id = dtoEntity.Id,
+                            OrderId = dtoEntity.OrderId,
+                            CarId = dtoEntity.CarId
+                        };
+                    }
+                case "ManagerDto":
+                    {
+                        var dtoEntity = (ManagerDto)(IBaseDto)entity;
+                        return new Manager()
+                        {
+                            Id = dtoEntity.Id,
+                            FirstName = dtoEntity.FirstName,
+                            LastName = dtoEntity.LastName,
+                            PhoneNumber = dtoEntity.PhoneNumber,
+                            Salary = dtoEntity.Salary,
+                            Position = dtoEntity.Position
+                        };
+                    }
+                case "ManufacturerDto":
+                    {
+                        var dtoEntity = (ManufacturerDto)(IBaseDto)entity;
+                        return new Manufacturer()
+                        {
+                            Id = dtoEntity.Id,
                             Name = dtoEntity.Name,
-                            Theme = dtoEntity.Theme,
-                            TeacherId = dtoEntity.TeacherId
-                        };
-                    }
-                case "TestResultDto":
-                    {
-                        var dtoEntity = (TestResultDto)(IBaseDto)entity;
-                        return new TestResult()
-                        {
-                            Id = dtoEntity.Id,
-                            Mark = dtoEntity.Mark,
-                            TestId = dtoEntity.TestId,
-                            StudentId = dtoEntity.StudentId
+                            OfficePhoneNumber = dtoEntity.OfficePhoneNumber,
+                            Country = dtoEntity.Country
                         };
                     }
                 default: throw new NotSupportedException();
@@ -95,71 +98,78 @@ namespace WcfRestService.Services
             var dtoTypeName = entity.GetType().Name;
             switch (dtoTypeName)
             {
-                case "Group":
+                case "Order":
                     {
-                        var groupDto = (Group)entity;
-                        return new GroupDto() { Id = groupDto.Id, GroupName = groupDto.GroupName, MaxStudents = groupDto.MaxStudents, StudyYear = groupDto.StudyYear };
-                    }
-                case "Student":
-                    {
-                        var dtoEntity = (Student)entity;
-                        return new StudentDto() { Id = dtoEntity.Id, FirstName = dtoEntity.FirstName, LastName = dtoEntity.LastName, PhoneNumber = dtoEntity.PhoneNumber, GroupId = dtoEntity.GroupId };
-                    }
-                case "Subject":
-                    {
-                        var dtoEntity = (Subject)entity;
-                        var enumInt = (int)dtoEntity.FinalTestType;
-                        return new SubjectDto()
+                        var dtoEntity = (Order)entity;
+                        return new OrderDto()
                         {
                             Id = dtoEntity.Id,
-                            FinalTestType = (Dto.FinalTestType)enumInt,
-                            Hours = dtoEntity.Hours,
-                            Name = dtoEntity.Name
+                            StartDate = dtoEntity.StartDate,
+                            EndDate = dtoEntity.EndDate,
+                            Sum = dtoEntity.Sum,
+                            CustomerId = dtoEntity.CustomerId,
+                            ManagerId = dtoEntity.ManagerId
                         };
                     }
-                case "SubjectInGroup":
+                case "Customer":
                     {
-                        var dtoEntity = (SubjectInGroup)entity;
-                        return new SubjectInGroupDto()
-                        {
-                            Id = dtoEntity.Id,
-                            GroupId = dtoEntity.GroupId,
-                            SubjectId = dtoEntity.SubjectId
-                        };
-                    }
-                case "Teacher":
-                    {
-                        var dtoEntity = (Teacher)entity;
-                        return new TeacherDto()
+                        var dtoEntity = (Customer)entity;
+                        return new CustomerDto()
                         {
                             Id = dtoEntity.Id,
                             FirstName = dtoEntity.FirstName,
                             LastName = dtoEntity.LastName,
                             PhoneNumber = dtoEntity.PhoneNumber,
-                            SubjectId = dtoEntity.SubjectId
+                            PassportSeries = dtoEntity.PassportSeries,
+                            AccoutId = dtoEntity.AccoutId
                         };
                     }
-                case "Test":
+                case "Car":
                     {
-                        var dtoEntity = (Test)entity;
-                        return new TestDto()
+                        var dtoEntity = (Car)entity;
+                        return new CarDto()
                         {
                             Id = dtoEntity.Id,
-                            Date = dtoEntity.Date,
+                            Brand = dtoEntity.Brand,
+                            Model = dtoEntity.Model,
+                            SerialNumber = dtoEntity.SerialNumber,
+                            Color = dtoEntity.Color,
+                            Price = dtoEntity.Price,
+                            ManufacturerId = dtoEntity.ManufacturerId
+                        };
+                    }
+                case "CarInOrder":
+                    {
+                        var dtoEntity = (CarInOrder)entity;
+                        return new CarInOrderDto()
+                        {
+                            Id = dtoEntity.Id,
+                            OrderId = dtoEntity.OrderId,
+                            CarId = dtoEntity.CarId
+                        };
+                    }
+                case "Manager":
+                    {
+                        var dtoEntity = (Manager)entity;
+                        return new ManagerDto()
+                        {
+                            Id = dtoEntity.Id,
+                            FirstName = dtoEntity.FirstName,
+                            LastName = dtoEntity.LastName,
+                            PhoneNumber = dtoEntity.PhoneNumber,
+                            Salary = dtoEntity.Salary,
+                            Position = dtoEntity.Position
+                        };
+                    }
+                case "Manufacturer":
+                    {
+                        var dtoEntity = (Manufacturer)entity;
+                        return new ManufacturerDto()
+                        {
+                            Id = dtoEntity.Id,
                             Name = dtoEntity.Name,
-                            Theme = dtoEntity.Theme,
-                            TeacherId = dtoEntity.TeacherId
-                        };
-                    }
-                case "TestResult":
-                    {
-                        var dtoEntity = (TestResult)entity;
-                        return new TestResultDto()
-                        {
-                            Id = dtoEntity.Id,
-                            Mark = dtoEntity.Mark,
-                            TestId = dtoEntity.TestId,
-                            StudentId = dtoEntity.StudentId
+                            OfficePhoneNumber = dtoEntity.OfficePhoneNumber,
+                            Country = dtoEntity.Country
                         };
                     }
                 default: throw new NotSupportedException();
