@@ -134,9 +134,9 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="OrderCreatePage.aspx" />
     <Content Include="OrderPage.aspx" />
-    <Content Include="Properties\DataSources\WcfRestService.DTOModels.GroupDto.datasource" />
-    <Content Include="Properties\DataSources\WcfRestService.DTOModels.SubjectInGroupDto.datasource" />
-    <Content Include="Properties\DataSources\WcfRestService.DTOModels.SubjectDto.datasource" />
+    <Content Include="Properties\DataSources\WcfRestService.DTOModels.OrderDto.datasource" />
+    <Content Include="Properties\DataSources\WcfRestService.DTOModels.CarInOrderDto.datasource" />
+    <Content Include="Properties\DataSources\WcfRestService.DTOModels.CarDto.datasource" />
     <None Include="Connected Services\AcademicService\AcademicService.wsdl" />
     <None Include="Connected Services\AcademicService\item.xsd">
       <SubType>Designer</SubType>

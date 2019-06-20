@@ -27,16 +27,17 @@ namespace WebFormsMsMqClient
             {
                 if (id != null)
                 {
-                    var _loadedSubject = Repository.GetAllEntitiesAsync().Result.Where(i => i.Id == Guid.Parse(id)).FirstOrDefault();
-                    var manufactID = _loadedSubject.ManufacturerId;
-                    var _loadedManufact = RepoManufact.GetAllEntitiesAsync().Result.Where(i => i.Id == manufactID).FirstOrDefault();
+                    var _loadedSubject = Repository.GetAllEntitiesAsync().Result.Single(i => i.Id == Guid.Parse(id));
+                    //var manufactID = _loadedSubject.ManufacturerId;
+                    //var _loadedManufact = RepoManufact.GetAllEntitiesAsync().Result.Single(i => i.Id == manufactID);
 
                     carBrand.Text = _loadedSubject.Brand;
                     carModel.Text = _loadedSubject.Model;
                     carSerialNumber.Text = _loadedSubject.SerialNumber;
                     carColor.Text = _loadedSubject.Color;
                     carPrice.Text = _loadedSubject.Price.ToString();
-                    carManufacturerId.Text = _loadedManufact != null ? _loadedManufact.Name : "";
+                    carManufacturerId.Text = "nothing";
+                    //carManufacturerId.Text = _loadedManufact != null ? _loadedManufact.Name : "";
 
                     btnCreate.Visible = false;
                     Label.Text = "Update car";
@@ -58,9 +59,9 @@ namespace WebFormsMsMqClient
             car.SerialNumber = carSerialNumber.Text;
             car.Color = carColor.Text;
             car.Price = int.Parse(carPrice.Text);
-
-            var _loadedManufact = RepoManufact.GetAllEntitiesAsync().Result.Where(i => i.Name == carManufacturerId.Text).FirstOrDefault();
-            car.ManufacturerId = _loadedManufact != null ? _loadedManufact.Id : Guid.Empty;
+            car.ManufacturerId = Guid.Empty;
+            //var _loadedManufact = RepoManufact.GetAllEntitiesAsync().Result.Single(i => i.Name == carManufacturerId.Text);
+            //car.ManufacturerId = _loadedManufact != null ? _loadedManufact.Id : Guid.Empty;
 
             using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required))
             {
